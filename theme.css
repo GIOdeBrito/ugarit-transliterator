@@ -1,0 +1,35 @@
+
+:root {
+    --color-foreground: #242404;
+    --color-background: #441C04;
+    --color-bordercolor: #643c04;
+}
+
+body, html {
+    margin: 0;
+    background-color: var(--color-background);
+    height: 100vh;
+}
+
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+button {
+    border-style: double;
+    border-width: 3px;
+    border-radius: 4px;
+    background-color: var(--color-foreground);
+    color: #fff;
+    padding: .4rem;
+    border-color: var(--color-bordercolor);
+}
+button:hover {
+    background-color: var(--color-bordercolor);
+    cursor: pointer;
+}
+
+p {
+    color: #fff;
+}
+
