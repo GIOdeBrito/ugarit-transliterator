@@ -1,9 +1,9 @@
 # Use the official PHP 8.1 image with Apache
 FROM php:8.1-apache
 
-# Install additional PHP extensions or dependencies as needed
-# For example, if you need MySQL support:
-# RUN docker-php-ext-install mysqli pdo_mysql
+# Install SQLite3 extension
+# Update: sqlite3 is already included in image
+# RUN docker-php-ext-install pdo_sqlite
 
 # Copy the local files to the apache html folder
 COPY . /var/www/html/

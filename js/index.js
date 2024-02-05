@@ -6,12 +6,14 @@ window.addEventListener('DOMContentLoaded', async () =>
 {
     let manager = new PageManager('main');
     manager.override('beforeload', () => console.log('recebais'));
+    manager.override('afterload', () => setControls());
     manager.loadPage();
 });
 
-function setControls ()
+async function setControls ()
 {
-
+    let res = await HttpRequest('testdb');
+    console.log(res);
 }
 
 
