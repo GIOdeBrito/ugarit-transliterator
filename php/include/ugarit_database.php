@@ -1,8 +1,7 @@
 <?php
 
-class UDatabase
+class __UgaritDB
 {
-    protected $db = '../sql/ugarit_words_base.db';
     protected $pdo = NULL;
     
     function __construct ()
@@ -23,12 +22,31 @@ class UDatabase
         $this->pdo = NULL;
     }
 
-    function query ($cmd)
+    function query ($cmd, $args = array())
     {
         $res = $this->pdo->prepare($cmd);
+
+        if(!empty($args))
+        {
+            foreach($args as $param => $value)
+            {
+                $res->bindParam($param, $value, PDO::PARAM_STR);
+            }
+        }
+
         $res->execute();
         return $res->fetchAll(PDO::FETCH_ASSOC);
     }
+}
+
+class UDatabase extends __UgaritDB
+{
+    protected $db = '../sql/ugarit_words_base.db';
+}
+
+class UPage extends __UgaritDB
+{
+    protected $db = '../sql/ugarit_pages.db';
 }
 
 ?>

@@ -6,8 +6,8 @@ $registered_actions = array
 (
     'fetchpage' => function () use ($args)
     {
+        $page_name = $args->value;
         require './services/fetch_page.php';
-        fetch_page_request($args->value);
     },
 
     'testdb' => function ()

@@ -1,19 +1,11 @@
 
-import { HttpRequest } from './httpreq.js';
 import { PageManager } from './webpage-components.js';
 
 window.addEventListener('DOMContentLoaded', async () =>
 {
-    let manager = new PageManager('main');
-    manager.override('beforeload', () => console.log('recebais'));
-    manager.override('afterload', () => setControls());
+    let manager = new PageManager('home');
+    manager.override('afterload', () => console.log(manager.Page + ' loaded'));
     manager.loadPage();
 });
-
-async function setControls ()
-{
-    let res = await HttpRequest('testdb');
-    console.log(res);
-}
 
 

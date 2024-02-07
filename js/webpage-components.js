@@ -1,5 +1,4 @@
 
-
 import { HttpRequest } from './httpreq.js';
 
 class PageManager 
@@ -16,18 +15,15 @@ class PageManager
         this.#_pageload = value;
     }
 
-    async loadPage (elem)
+    async loadPage ()
     {
-        if(!elem)
-        {
-            elem = document.getElementsByTagName('main')[0];
-        }
-
         this.#_functions.beforeload();
 
         let res = await HttpRequest('fetchpage', { value: this.#_pageload });
-        console.log(res);
-        elem.innerHTML = res.response;
+        
+        let win = window.open('', '_self');
+        win.document.write(res.response);
+        win.document.close();
 
         this.#_functions.afterload();
     }
