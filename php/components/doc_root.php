@@ -8,18 +8,25 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title><?php echo $page_obj->title; ?></title>
+        <title><?php echo $page_obj['TITLE']; ?> - Ugarit Transliterator</title>
         <link rel="stylesheet" href="./theme.css">
     </head>
 
     <body>
-        <?php require_once $page_obj->head; ?>
+        <?php
+        
+        if(!empty($page_obj['HEAD']))
+        {
+            require $page_obj['HEAD'];
+        }
+        
+        ?>
         
         <main>
-            <?php require_once $page_obj->mainhtml; ?>
+            <?php require $page_obj['MAINHTML']; ?>
         </main>
 
-        <?php require_once './components/page_footer.php'; ?>
+        <?php require './components/page_footer.php'; ?>
     </body>
 </html>
 <?php

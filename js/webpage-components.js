@@ -54,6 +54,21 @@ class PageManager
     {
         return this.#_pageload;
     }
+
+    static get ParamPage ()
+    {
+        let url = new URLSearchParams(window.location.search);
+        let page = url.get('page');
+        return page;
+    }
+
+    static set ParamPage (page)
+    {
+        let url = new URLSearchParams();
+        let params = url.set('page', page);
+        let neourl = `?${params.toString()}`;
+        window.location.href = neourl;
+    }
 }
 
 export {

@@ -18,22 +18,21 @@ function fetch_page_request ($slug)
     if(empty($res))
     {
         header('HTTP/2 404 Not found');
-        die('Page not found');
+
+        $param = array(':slug' => 'not_found');
+        $res = $db->query($sql, $param);
+
+        return $res[0];
     }
 
     $item = $res[0];
 
-    $page_array = array
-    (
-        'title' => $item['TITLE'],
-        'slug' => $item['SLUG'],
-        'head' => $item['HEAD'] ?? './components/page_header.php',
-        'mainhtml' => $item['MAINHTML'],
-    );
+    if(empty($item['HEAD']))
+    {
+        $item['HEAD'] = './components/page_header.php';
+    }
 
-    $page_obj = (object) $page_array;
-
-    return $page_obj;
+    return $item;
 }
 
 $page_obj = fetch_page_request($slug);
