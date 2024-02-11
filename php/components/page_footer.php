@@ -10,9 +10,6 @@
 <style>
 
     .page-footer {
-        position: absolute;
-        bottom: 0;
-        width: 100vw;
         color: #fff;
         background-color: var(--color-foreground);
         border-color: var(--color-bordercolor);
@@ -20,6 +17,7 @@
         border-width: 3px 3px;
         box-sizing: border-box;
         text-align: center;
+        margin-top: auto;
     }
     .page-footer > p {
         font-size: 12px;

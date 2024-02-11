@@ -8,11 +8,35 @@
 </header>
 
 <nav>
-    <p>Home</p>
-    <p>Transliterator</p>
-    <p>Dictionary</p>
-    <p>Articles</p>
+    <p id='bhome'>Home</p>
+    <p id='btransliterate'>Transliterator</p>
+    <p id='bdicio'>Dictionary</p>
+    <p id='barticle'>Articles</p>
 </nav>
+
+<script type='module'>
+
+    import { PageManager } from "./js/webpage-components.js";
+
+    window.addEventListener('load', () =>
+    {
+        console.log(PageManager);
+        setHeadControls();
+    });
+
+    function setHeadControls ()
+    {
+        window.bhome.onclick = () =>
+        {
+            PageManager.ParamPage = 'home';
+        };
+        window.bdicio.onclick = () =>
+        {
+            PageManager.ParamPage = 'dictionary';
+        };
+    }
+
+</script>
 
 <style>
 
@@ -23,6 +47,9 @@
         border-style: double;
         border-width: 6px;
         text-align: center;
+    }
+    .page-head > h1 {
+        margin: 15px;
     }
 
     nav {

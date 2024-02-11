@@ -5,10 +5,16 @@
     --color-bordercolor: #643c04;
 }
 
-body, html {
+body {
     margin: 0;
     background-color: var(--color-background);
+    display: flex;
+    flex-direction: column;
+}
+
+body, html {
     height: 100vh;
+    min-height: 100vh;
 }
 
 * {

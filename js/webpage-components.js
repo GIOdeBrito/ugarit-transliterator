@@ -65,9 +65,8 @@ class PageManager
     static set ParamPage (page)
     {
         let url = new URLSearchParams();
-        let params = url.set('page', page);
-        let neourl = `?${params.toString()}`;
-        window.location.href = neourl;
+        url.set('page', page);
+        window.location.href = `?${url.toString()}`;
     }
 }
 

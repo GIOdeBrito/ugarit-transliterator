@@ -6,6 +6,8 @@
 
 --INSERT INTO SEARCH (WORD, DESCRIPTION) VALUES ('bitum', 'Ugaritic word for house.');
 
+-- sqlite3 ./sql/ugarit_pages.db < ./sql/insert_values.sql 
+
 INSERT INTO PAGES (SLUG, TITLE, HEAD, MAINHTML)
-    VALUES ('not_found', 'Home', NULL, './components/page_notfound.php');
+    VALUES ('dictionary', 'Dictionary', NULL, './components/page_dictionary.php');
 
