@@ -41,12 +41,12 @@ class __UgaritDB
 
 class UDatabase extends __UgaritDB
 {
-    protected $db = '../sql/ugarit_words_base.db';
+    protected $db = './sql/ugarit_words_base.db';
 }
 
 class UPage extends __UgaritDB
 {
-    protected $db = '../sql/ugarit_pages.db';
+    protected $db = './sql/ugarit_pages.db';
 }
 
 ?>

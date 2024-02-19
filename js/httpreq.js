@@ -8,7 +8,7 @@ function HttpRequest (action, args = {}, type = 'POST')
     fdata.append('args', JSON.stringify(args));
     
     const xmlreq = new XMLHttpRequest();
-    const url = 'php/admin.php';
+    const url = 'api-handler/admin.php';
 
     xmlreq.open(type, url, true);
     xmlreq.send(fdata);
