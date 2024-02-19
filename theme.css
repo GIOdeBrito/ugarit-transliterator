@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Micro+5&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
 :root {
     --color-foreground: #242404;
     --color-background: #441C04;
@@ -18,7 +20,7 @@ body, html {
 }
 
 * {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Roboto Serif', serif;
 }
 
 button {
@@ -39,3 +41,8 @@ p {
     color: #fff;
 }
 
+@media screen and (max-height: 500px) {
+    footer[class='page-footer'] {
+        display: none;
+    }
+}

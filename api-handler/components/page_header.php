@@ -5,14 +5,16 @@
 ?>
 <header class="page-head">
     <h1>Ugarit Transliterator</h1>
-</header>
 
-<nav>
-    <p id='bhome'>Home</p>
-    <p id='btransliterate'>Transliterator</p>
-    <p id='bdicio'>Dictionary</p>
-    <p id='barticle'>Articles</p>
-</nav>
+    <hr>
+    
+    <nav>
+        <p id='bhome'>Home</p>
+        <p id='btransliterate'>Transliterator</p>
+        <p id='bdicio'>Dictionary</p>
+        <p id='barticle'>Articles</p>
+    </nav>
+</header>
 
 <script type='module'>
 
@@ -50,17 +52,30 @@
     }
     .page-head > h1 {
         margin: 15px;
+        font-weight: 500;
+    }
+
+    .page-head > hr {
+        overflow: visible;
+        border: none;
+        border-top: solid 1px;
+        width: 40vw;
+        color: var(--color-bordercolor);
+    }
+    .page-head > hr:after {
+        background-color: var(--color-foreground);
+        top: -1.1em;
+        position: relative;
+        display: inline-block;
+        content: '𐎁𐎍';
+        font-size: 11px;
     }
 
     nav {
-        background-color: var(--color-foreground);
-        border-color: var(--color-bordercolor);
-        border-style: double;
-        border-width: 6px;
         display: flex;
         flex-flow: wrap;
         justify-content: center;
-        gap: 10vw;
+        gap: 5px;
     }
     nav > p {
         transition: transform 0.25s ease-in-out;

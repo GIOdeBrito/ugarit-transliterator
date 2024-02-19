@@ -1,7 +1,5 @@
 <?php
 
-require_once './include/admin_access_permission.php';
-
 function action_start ($action, $args)
 {
     require_once './actions_registered.php';

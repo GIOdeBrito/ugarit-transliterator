@@ -5,7 +5,7 @@
 ?>
 <section>
     <header>
-        <h2>Dictionary</h2>
+        <h2>Dictionary, Word Searcher</h2>
     </header>
 
     <p>Search words here:</p>
@@ -20,7 +20,8 @@
     section > header > h2 {
         text-align: center;
         color: #fff;
-        letter-spacing: 4px;
+        letter-spacing: 0px;
+        font-weight: 300;
     }
 
     section > p {

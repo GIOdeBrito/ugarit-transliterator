@@ -9,7 +9,7 @@ function fetch_page_request ($slug)
 {
     require_once './include/ugarit_database.php';
     
-    $db = new UPage();
+    $db = new UDatabase();
 
     $sql = 'SELECT * FROM PAGES WHERE SLUG = :slug';
     $param = array(':slug' => strval($slug));
