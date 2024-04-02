@@ -22,7 +22,6 @@
 
     window.addEventListener('load', () =>
     {
-        console.log(PageManager);
         setHeadControls();
     });
 
@@ -32,6 +31,12 @@
         {
             PageManager.ParamPage = 'home';
         };
+
+        window.btransliterate.onclick = () =>
+        {
+            PageManager.ParamPage = 'transliterate';
+        };
+
         window.bdicio.onclick = () =>
         {
             PageManager.ParamPage = 'dictionary';
@@ -61,6 +66,7 @@
         border-top: solid 1px;
         width: 40vw;
         color: var(--color-bordercolor);
+        margin: 0 auto;
     }
     .page-head > hr:after {
         background-color: var(--color-foreground);
@@ -75,11 +81,11 @@
         display: flex;
         flex-flow: wrap;
         justify-content: center;
-        gap: 5px;
+        gap: 20px;
     }
     nav > p {
         transition: transform 0.25s ease-in-out;
-        padding: .5em;
+        padding: .5em 0;
         margin: 0;
     }
     nav > p:hover {

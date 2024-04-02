@@ -6,8 +6,8 @@ class PageManager
     #_pageload = '';
 
     #_functions = {
-        beforeload: () => { },
-        afterload: () => { },
+        beforeload: new Function(),
+        afterload: new Function(),
     };
 
     constructor (value)
