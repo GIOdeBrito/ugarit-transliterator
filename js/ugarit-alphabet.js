@@ -72,6 +72,7 @@ var ALPHABET_MAP = new Map(
 	['\'i', '𐎛'],
 	// Vowel U
 	['u', '𐎜'],
+	['o', '𐎜'],
 	['ủ', '𐎜'],
 	['\'u', '𐎜'],
 	// Ssu
@@ -90,7 +91,7 @@ function getAlphabetDigraphs ()
 {
 	let digraphs = Array.from(ALPHABET_MAP.keys()).filter(function(char, i)
 	{
-		if(char.length < 2 || char.length > 2)
+		if(char.length < 2 || char.length > 3)
 		{
 			return;
 		}
@@ -101,9 +102,15 @@ function getAlphabetDigraphs ()
 	return digraphs;
 }
 
+function getKnownVowels ()
+{
+	return ['a', 'e', 'i', 'o', 'u'];
+}
+
 export {
 	getAlphabetMap,
 	getAlphabetDigraphs,
+	getKnownVowels
 }
 
 

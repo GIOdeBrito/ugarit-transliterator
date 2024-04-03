@@ -10,6 +10,7 @@
 <style>
 
     .page-footer {
+        display: none;
         color: #fff;
         background-color: var(--color-foreground);
         border-color: var(--color-bordercolor);
@@ -21,6 +22,13 @@
     }
     .page-footer > p {
         font-size: 12px;
+    }
+
+    /* If screen does not have enough vertical space */
+    @media screen and (max-height: 500px) {
+        footer[class='page-footer'] {
+            display: none;
+        }
     }
 
 </style>

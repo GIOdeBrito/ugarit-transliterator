@@ -5,13 +5,14 @@
     --color-foreground: #242404;
     --color-background: #441C04;
     --color-bordercolor: #643c04;
+    --color-golden: #a66914;
 }
 
 body {
     margin: 0;
     background-color: var(--color-background);
     display: flex;
-    flex-direction: column;
+    flex-direction: initial;
 }
 
 body, html {
@@ -21,6 +22,11 @@ body, html {
 
 * {
     font-family: 'Roboto Serif', serif;
+}
+
+main {
+    padding: 1rem;
+    width: 80vw;
 }
 
 button {
@@ -41,8 +47,18 @@ p {
     color: #fff;
 }
 
-@media screen and (max-height: 500px) {
+/* For mobile screens */
+@media screen and (max-width: 786px) {
     footer[class='page-footer'] {
-        display: none;
+        display: initial;
+    }
+
+    body {
+        flex-direction: column;
+    }
+
+    main {
+        padding: 0;
+        width: auto;
     }
 }

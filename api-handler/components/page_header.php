@@ -48,6 +48,7 @@
 <style>
 
     .page-head {
+        width: 20vw;
         color: #fff;
         background-color: var(--color-foreground);
         border-color: var(--color-bordercolor);
@@ -58,13 +59,13 @@
     .page-head > h1 {
         margin: 15px;
         font-weight: 500;
+        word-break: break-word;
     }
 
     .page-head > hr {
         overflow: visible;
         border: none;
         border-top: solid 1px;
-        width: 40vw;
         color: var(--color-bordercolor);
         margin: 0 auto;
     }
@@ -79,9 +80,9 @@
 
     nav {
         display: flex;
-        flex-flow: wrap;
+        flex-flow: column;
         justify-content: center;
-        gap: 20px;
+        gap: 5px;
     }
     nav > p {
         transition: transform 0.25s ease-in-out;
@@ -92,6 +93,23 @@
         transform: translateY(-3px);
         text-shadow: 2px 2px #bd0e0e;
         cursor: pointer;
+    }
+
+    /* For mobile screens */
+    @media screen and (max-width: 786px) {
+        .page-head {
+            width: auto;
+        }
+        .page-head > hr {
+            width: 40vw;
+        }
+
+        nav {
+            display: flex;
+            flex-flow: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
     }
 
 </style>

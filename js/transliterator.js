@@ -1,5 +1,9 @@
 
-import { getAlphabetMap, getAlphabetDigraphs } from "./ugarit-alphabet.js";
+import { getAlphabetMap, getAlphabetDigraphs, getKnownVowels } from "./ugarit-alphabet.js";
+
+var TRANSLITERATOR_GLOBALS = {
+    omitVowels: false,
+};
 
 function convertTextToCuneiform (text = String())
 {
@@ -26,6 +30,12 @@ function convertTextToCuneiform (text = String())
 
 function parseToConvertArray (text = String())
 {
+    // Omit the vowels if selected
+    if(TRANSLITERATOR_GLOBALS.omitVowels)
+    {
+        text = filterOutVowelsInstances(text);
+    }
+    
     let textArray = text.toLocaleLowerCase().split('');
     // Gets list of known digraphs
     let digraphs = getAlphabetDigraphs();
@@ -69,7 +79,47 @@ function parseToConvertArray (text = String())
     return finalArray;
 }
 
+function filterOutVowelsInstances (text = String())
+{
+    /* Removes all the other vowels 
+    from each word */
+
+    let textArray = text.split(' ');
+    let vowels = getKnownVowels();
+    
+    let neoArray = textArray.map(function (word)
+    {
+        for(let i = 1; i < word.length; i++)
+        {
+            if(!vowels.includes(word[i]))
+            {
+                continue;
+            }
+
+            let wordArray = word.split('');
+            wordArray.splice(i, 1, '');
+            word = wordArray.join('');
+        }
+        
+        return word;
+    });
+    
+    return neoArray.join(' ');
+}
+
+function setGlobal (globalvar, neovalue)
+{
+    if(!TRANSLITERATOR_GLOBALS.hasOwnProperty(globalvar))
+    {
+        console.error(`Could not alter ${globalvar} on transliterator global vars`);
+        return;
+    }
+
+    TRANSLITERATOR_GLOBALS[globalvar] = neovalue;
+}
+
 export {
     convertTextToCuneiform,
+    setGlobal
 }
 
