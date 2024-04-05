@@ -3,7 +3,7 @@ import { HttpRequest } from './httpreq.js';
 
 class PageManager 
 {
-    #_pageload = '';
+    #_pageload = String();
 
     #_functions = {
         beforeload: new Function(),

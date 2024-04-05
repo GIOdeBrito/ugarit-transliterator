@@ -12,6 +12,18 @@ $registered_actions = array
     {
         require './services/db_test.php';
     },
+
+    // Register a word on admin page
+    'insertword_admin' => function () use ($args)
+    {
+        require './services/admin/insert_word.php';
+    },
+
+    // Register a word on admin page
+    'deleteword_admin' => function () use ($args)
+    {
+        require './services/admin/delete_word.php';
+    },
 );
 
 ?>

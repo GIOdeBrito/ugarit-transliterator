@@ -1,6 +1,6 @@
 
 
-function HttpRequest (action, args = {}, type = 'POST')
+function HttpRequest (action, args = Object(), type = 'POST')
 {
     const fdata = new FormData();
 

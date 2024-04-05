@@ -3,12 +3,12 @@
 
 -- sqlite3 ./sql/ugarit_database.db < ./sql/insert_values.sql 
 
-INSERT INTO PAGES (SLUG, TITLE, HEAD, MAINHTML)
-    VALUES ('transliterate', 'Transliterate', NULL, './components/pages/page_transliterator.php');
+/*INSERT INTO PAGES (SLUG, TITLE, HEAD, MAINHTML)
+    VALUES ('admin_dictionary', 'Admin::Dictionary', NULL, './components/pages/page_admin_dictionary.php');*/
 
-/*
+
 INSERT INTO SEARCH_WORD
     (WORD, TRANSLATION, CUNEIFORM, INFORMATION)
 VALUES
-    ('bitu', 'house', '𐎁𐎚', '');*/
+    ('galathu', 'snow', '𐎂𐎍𐎘', '');
 

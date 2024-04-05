@@ -8,16 +8,17 @@
     --color-golden: #a66914;
 }
 
+html, body {
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
 body {
     margin: 0;
     background-color: var(--color-background);
     display: flex;
     flex-direction: initial;
-}
-
-body, html {
-    height: 100vh;
-    min-height: 100vh;
 }
 
 * {
@@ -26,7 +27,9 @@ body, html {
 
 main {
     padding: 1rem;
-    width: 80vw;
+    width: 100vw;
+    box-sizing: border-box;
+    overflow: auto;
 }
 
 button {
@@ -49,8 +52,8 @@ p {
 
 /* For mobile screens */
 @media screen and (max-width: 786px) {
-    footer[class='page-footer'] {
-        display: initial;
+    html, body {
+        overflow: auto;
     }
 
     body {
@@ -60,5 +63,10 @@ p {
     main {
         padding: 0;
         width: auto;
+        overflow: initial;
+    }
+
+    footer[class='page-footer'] {
+        display: initial;
     }
 }

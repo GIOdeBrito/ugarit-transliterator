@@ -37,6 +37,33 @@ class __UgaritDB
         $res->execute();
         return $res->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    function exec ($cmd, $args)
+    {
+        $res = $this->pdo->prepare($cmd);
+        $this->pdo->beginTransaction();
+
+        if(!empty($args))
+        {
+            foreach($args as $param => $value)
+            {
+                $res->bindParam($param, $value, PDO::PARAM_STR);
+            }
+        }
+
+        try
+        {
+            $res->execute();
+            $this->pdo->commit();
+            return true;
+        }
+        catch(Exception $ex)
+        {
+            $this->pdo->rollback();
+            return false;
+            //echo $ex->getMessage();
+        }
+    }
 }
 
 class UDatabase extends __UgaritDB

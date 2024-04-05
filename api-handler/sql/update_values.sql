@@ -3,5 +3,5 @@
 
 -- UPDATE PAGES SET MAINHTML = './components/pages/page_notfound.php' WHERE ID = 2;
 
-
-UPDATE PAGES SET MAINHTML = './components/pages/page_transliterator.php' WHERE ID = 4;
+-- UPDATE SEARCH_WORD SET TRANSLATION = 'mother' WHERE ID = 6;
+UPDATE SEARCH_WORD SET CUNEIFORM = '𐎀𐎍𐎐' WHERE ID = 10;

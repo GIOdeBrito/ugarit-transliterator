@@ -3,18 +3,20 @@
 /* Ugarit transliterator page header */
 
 ?>
-<header class="page-head">
-    <h1>Ugarit Transliterator</h1>
+<article class="page-head">
+    <header>
+        <h1>Ugarit Transliterator</h1>
 
-    <hr>
-    
-    <nav>
-        <p id='bhome'>Home</p>
-        <p id='btransliterate'>Transliterator</p>
-        <p id='bdicio'>Dictionary</p>
-        <p id='barticle'>Articles</p>
-    </nav>
-</header>
+        <hr>
+
+        <nav>
+            <p id='bhome'>Home</p>
+            <p id='btransliterate'>Transliterator</p>
+            <p id='bdicio'>Dictionary</p>
+            <p id='barticle'>Articles</p>
+        </nav>
+    </header>
+</article>
 
 <script type='module'>
 
@@ -48,7 +50,7 @@
 <style>
 
     .page-head {
-        width: 20vw;
+        width: 15vw;
         color: #fff;
         background-color: var(--color-foreground);
         border-color: var(--color-bordercolor);
@@ -56,20 +58,24 @@
         border-width: 6px;
         text-align: center;
     }
-    .page-head > h1 {
-        margin: 15px;
-        font-weight: 500;
-        word-break: break-word;
+    .page-head > header {
+        position: sticky;
+        top: 0;
+        left: 0;
     }
-
-    .page-head > hr {
+    .page-head > header > h1 {
+        margin: 0.95rem;
+        font-weight: 500;
+        word-break: normal;
+    }
+    .page-head > header > hr {
         overflow: visible;
         border: none;
         border-top: solid 1px;
         color: var(--color-bordercolor);
         margin: 0 auto;
     }
-    .page-head > hr:after {
+    .page-head > header > hr:after {
         background-color: var(--color-foreground);
         top: -1.1em;
         position: relative;
@@ -100,7 +106,10 @@
         .page-head {
             width: auto;
         }
-        .page-head > hr {
+        .page-head > header {
+            position: relative;
+        }
+        .page-head > header > hr {
             width: 40vw;
         }
 

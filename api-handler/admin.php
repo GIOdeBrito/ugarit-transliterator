@@ -18,13 +18,13 @@ if(!isset($_POST['action']) || !isset($_POST['args']))
     die("Bad Request");
 }
 
-if(!isset($_SESSION['localkey']))
+session_start();
+define('UGARIT_VERSION', '1.0.0');
+
+if(!isset($_SESSION['USER_GLOBAL']))
 {
     $_SESSION['localkey'] = md5(rand(10000,99999));
 }
-
-session_start();
-define('UGARIT_VERSION', '1.0.0');
 
 $action = $_POST['action'];
 $args = json_decode($_POST['args']);
