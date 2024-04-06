@@ -1,6 +1,6 @@
 
 
-import { GString } from "./string-tools.js";
+import { GString } from "./gtype-tools.js";
 
 function searchTable (text, table)
 {

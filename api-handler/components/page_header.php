@@ -50,7 +50,7 @@
 <style>
 
     .page-head {
-        width: 15vw;
+        width: 18vw;
         color: #fff;
         background-color: var(--color-foreground);
         border-color: var(--color-bordercolor);
@@ -66,7 +66,7 @@
     .page-head > header > h1 {
         margin: 0.95rem;
         font-weight: 500;
-        word-break: normal;
+        word-break: break-word;
     }
     .page-head > header > hr {
         overflow: visible;

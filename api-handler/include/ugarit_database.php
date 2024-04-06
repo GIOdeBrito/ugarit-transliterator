@@ -38,7 +38,7 @@ class __UgaritDB
         return $res->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function exec ($cmd, $args)
+    function exec ($cmd, $args): bool
     {
         $res = $this->pdo->prepare($cmd);
         $this->pdo->beginTransaction();

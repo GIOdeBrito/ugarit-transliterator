@@ -14,10 +14,10 @@
         <legend>Configuration:</legend>
 
         <section>
-            <label for="radio-usevowel">Include vowels</label>
+            <label for="radio-usevowel">Literal:</label>
             <input id="radio-usevowel" type="radio" name="use-vowels" checked>
 
-            <label for="radio-omitvowel">Omit vowels</label>
+            <label for="radio-omitvowel">Format:</label>
             <input id="radio-omitvowel" type="radio" name="use-vowels">
         </section>
 

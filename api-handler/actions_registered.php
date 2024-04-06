@@ -13,6 +13,11 @@ $registered_actions = array
         require './services/db_test.php';
     },
 
+    'getdictionaryword' => function () use ($args)
+    {
+        require './services/get_word_search.php';
+    },
+
     // Register a word on admin page
     'insertword_admin' => function () use ($args)
     {

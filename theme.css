@@ -46,8 +46,42 @@ button:hover {
     cursor: pointer;
 }
 
+textarea {
+    box-sizing: border-box;
+    border-style: double;
+    border-color: var(--color-golden);
+    border-width: 6px;
+    color: #fff;
+    background-color: var(--color-bordercolor);
+}
+
+input {
+    box-sizing: border-box;
+    border-style: double;
+    border-color: var(--color-golden);
+    border-width: 6px;
+    background-color: var(--color-bordercolor);
+    color: #fff;
+}
+
 p {
     color: #fff;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    color: #fff;
+}
+table > thead > tr > th {
+    padding: 10px;
+    background-color: var(--color-foreground);
+}
+table > tbody > tr:nth-child(odd) {
+    background-color: #311808;
+}
+table > tbody > tr > th {
+    padding: 10px;
 }
 
 /* For mobile screens */

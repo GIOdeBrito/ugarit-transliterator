@@ -139,19 +139,4 @@ require_once 'include/ugarit_database.php';
         display: block;
     }
 
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-    table > thead > tr > th {
-        padding: 10px;
-        background-color: var(--color-foreground);
-    }
-    table > tbody > tr:nth-child(odd) {
-        background-color: #311808;
-    }
-    table > tbody > tr > th {
-        padding: 10px;
-    }
-
 </style>
