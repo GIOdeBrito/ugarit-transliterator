@@ -3,24 +3,28 @@
 /* Ugarit transliterator main body */
 
 ?>
-<section>
+<article>
+    <section class='header-section'>
+        <header>
+            <h1>Welcome to <mark>Ugarit Transliterator</mark></h1>
+        </header>
+    </section>
+
     <p>Version <?php echo defined('UGARIT_VERSION'); ?></p>
     <button>This is a button</button>
-</section>
+</article>
 
-<script type="module">
+<style>
 
-    import { HttpRequest } from './js/httpreq.js';
-
-    window.onload = () =>
-    {
-        setControls();
-    };
-
-    async function setControls ()
-    {
-        let res = await HttpRequest('testdb');
-        console.log(res);
+    .header-section {
+        text-align: center;
     }
 
-</script>
+    h1 > mark {
+        font-weight: bold;
+        background-color: #0000;
+        color: #fff;
+        font-size: 2rem;
+    }
+
+</style>

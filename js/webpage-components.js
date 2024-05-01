@@ -22,7 +22,7 @@ class PageManager
         let res = await HttpRequest('fetchpage', { value: this.#_pageload });
         
         let win = window.open('', '_self');
-        win.document.write(res.response);
+        win.document.write(res?.response);
         win.document.close();
 
         this.#_functions.afterload();

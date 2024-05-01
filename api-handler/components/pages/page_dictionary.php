@@ -18,12 +18,13 @@
 </section>
 
 <section>
-<table hidden>
+    <table hidden>
         <thead>
             <tr>
                 <th>Word</th>
                 <th>Translation</th>
                 <th>Cuneiform</th>
+                <th>Description</th>
             </tr>
         </thead>
 
@@ -35,7 +36,7 @@
 <script type="module">
 
     import { HttpRequest } from "./js/httpreq.js";
-    import { GJson } from "./js/gtype-tools.js";
+    import { tryParseJson } from "./js/json-tools.js";
 
     window.addEventListener('load', () =>
     {
@@ -62,7 +63,7 @@
             current_queue = setTimeout(async () =>
             {
                 let res = await HttpRequest('getdictionaryword', json);
-                let content = GJson.TryParse(res.response);
+                let content = tryParseJson(res.response);
 
                 if(!content)
                 {
@@ -91,24 +92,31 @@
             tbody.innerHTML = String();
         }
 
-        itemArray.forEach(item => 
+        // Creates the items for the table
+        const func_CreateTableItem = ({ word, translation, logograms, information }) =>
         {
             let row = document.createElement('tr');
             
-            let word = document.createElement('th');
-            word.textContent = item.word;
-            row.appendChild(word);
+            let wordcell = document.createElement('th');
+            wordcell.textContent = word;
+            row.appendChild(wordcell);
 
             let translate = document.createElement('th');
-            translate.textContent = item.translation;
+            translate.textContent = translation;
             row.appendChild(translate);
 
             let cuneo = document.createElement('th');
-            cuneo.textContent = item.logograms;
+            cuneo.textContent = logograms;
             row.appendChild(cuneo);
+
+            let infor = document.createElement('th');
+            infor.textContent = information;
+            row.appendChild(infor);
             
             tbody.appendChild(row);
-        });
+        };
+
+        itemArray.forEach(item => func_CreateTableItem(item));
 
         tbody.parentElement.hidden = false;
     }

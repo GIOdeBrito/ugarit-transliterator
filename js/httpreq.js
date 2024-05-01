@@ -1,14 +1,20 @@
 
 
-function HttpRequest (action, args = Object(), type = 'POST')
+function HttpRequest (action = String(), args = Object(), files = Array(), type = 'POST')
 {
     const fdata = new FormData();
 
     fdata.append('action', action);
     fdata.append('args', JSON.stringify(args));
+
+    // Append files
+    if(files.length > 0)
+    {
+        Array.from(files).forEach(file => fdata.append('uploaded_file[]', file));
+    }
     
     const xmlreq = new XMLHttpRequest();
-    const url = 'api-handler/admin.php';
+    const url = '/api-handler/admin.php';
 
     xmlreq.open(type, url, true);
     xmlreq.send(fdata);
@@ -24,6 +30,6 @@ function HttpRequest (action, args = Object(), type = 'POST')
 }
 
 export {
-    HttpRequest,
+    HttpRequest
 }
 

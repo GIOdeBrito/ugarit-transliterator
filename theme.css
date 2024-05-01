@@ -64,12 +64,19 @@ input {
     color: #fff;
 }
 
+h1, h2, h3 {
+    color: #fff;
+}
+
 p {
     color: #fff;
 }
 
 table {
     border-collapse: collapse;
+    border-style: solid;
+    border-color: var(--color-foreground);
+    border-width: .3rem;
     width: 100%;
     color: #fff;
 }

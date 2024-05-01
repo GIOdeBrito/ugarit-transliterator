@@ -1,7 +1,8 @@
 
 import { getAlphabetMap, getAlphabetDigraphs, getKnownVowels } from "./ugarit-alphabet.js";
 
-var TRANSLITERATOR_GLOBALS = {
+const TRANSLITERATOR_GLOBALS =
+{
     omitVowels: false,
 };
 
@@ -108,14 +109,8 @@ function filterOutVowelsInstances (text = String())
 }
 
 function setGlobal (globalvar, neovalue)
-{
-    if(!TRANSLITERATOR_GLOBALS.hasOwnProperty(globalvar))
-    {
-        console.error(`Could not alter ${globalvar} on transliterator global vars`);
-        return;
-    }
-
-    TRANSLITERATOR_GLOBALS[globalvar] = neovalue;
+{   
+    TRANSLITERATOR_GLOBALS?.[globalvar] = neovalue;
 }
 
 export {

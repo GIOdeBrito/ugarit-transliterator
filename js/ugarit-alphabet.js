@@ -1,6 +1,6 @@
 
 
-var ALPHABET_MAP = new Map(
+const ALPHABET_MAP = new Map(
 [
 	// Alpa
 	['a', '𐎀'],

@@ -1,6 +1,6 @@
 
 
-import { GString } from "./gtype-tools.js";
+import { isNullOrEmpty } from "./string-tools.js";
 
 function searchTable (text, table)
 {
@@ -30,7 +30,7 @@ function filterTableItems (children, keywords)
         for(let key of keywords)
         {
             // Ignores empty and null values
-            if(GString.isNullOrEmpty(key))
+            if(isNullOrEmpty(key))
             {
                 continue;
             }
@@ -55,7 +55,7 @@ function hasOnlyInvalidEntries (keywords)
     
     for(let key of keywords)
     {
-        if(GString.isNullOrEmpty(key))
+        if(isNullOrEmpty(key))
         {
             invalidNum++;
             continue;
