@@ -2,8 +2,6 @@
 
 class __UgaritDB
 {
-    protected $pdo = NULL;
-    
     function __construct ()
     {
         try

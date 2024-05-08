@@ -1,5 +1,5 @@
 
-function tryParseJson (text)
+function TryParseJson (text)
 {
     if(typeof text !== "string")
     {
@@ -18,6 +18,6 @@ function tryParseJson (text)
 }
 
 export {
-    tryParseJson
+    TryParseJson
 }
 
