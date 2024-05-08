@@ -12,13 +12,28 @@ require './api-handler/pages_location.php';
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php echo $page_obj->TITLE; ?> - Ugarit Transliterator</title>
         <link rel="stylesheet" href="./theme.css">
+        <script type='module' src='./js/pages/index.js'></script>
     </head>
 
     <body>
-        <?php require $page_obj->HEAD; ?>
+        <?php
+        
+        if(file_exists($page_obj->HEAD))
+        {
+            require $page_obj->HEAD;
+        }
+        
+        ?>
         
         <main>
-            <?php require $page_obj->MAINHTML; ?>
+            <?php
+            
+            if(file_exists($page_obj->MAINHTML))
+            {
+                require $page_obj->MAINHTML;
+            }
+            
+            ?>
         </main>
 
         <?php require './api-handler/components/page_footer.php'; ?>

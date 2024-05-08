@@ -10,5 +10,5 @@
 INSERT INTO SEARCH_WORD
     (WORD, TRANSLATION, CUNEIFORM, INFORMATION)
 VALUES
-    ('galathu', 'snow', '𐎂𐎍𐎘', '');
+    ('shapashu', 'sun', '𐎌𐎔𐎌 ', '');
 

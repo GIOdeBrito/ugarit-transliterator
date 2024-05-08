@@ -14,9 +14,10 @@ $query_sql =
         WHERE TRANSLATION LIKE :qparam
     )
     AS RESULT
+    ORDER BY WORD ASC
 ";
 
-$param = $args->param;
+$param = strval($args->param);
 $entries = array();
 
 // Executes query only if param is not empty
@@ -32,7 +33,7 @@ if(!empty($param))
         $param = '%'.$param.'%';
     }
 
-    $res = $db->query($query_sql, array(':qparam' => strval($param)));
+    $res = $db->query($query_sql, array(':qparam' => $param));
 
     foreach($res as $item)
     {

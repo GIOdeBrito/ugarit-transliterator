@@ -110,7 +110,7 @@ function filterOutVowelsInstances (text = String())
 
 function setGlobal (globalvar, neovalue)
 {   
-    TRANSLITERATOR_GLOBALS?.[globalvar] = neovalue;
+    TRANSLITERATOR_GLOBALS[globalvar] = neovalue;
 }
 
 export {

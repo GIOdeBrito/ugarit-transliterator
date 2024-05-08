@@ -17,7 +17,7 @@ $_pages = array
         return $page_settings;
     },
 
-    'transliterator' => function () use ($page_settings)
+    'transliterate' => function () use ($page_settings)
     {
         $page_settings['TITLE'] = 'Transliterate';
         $page_settings['MAINHTML'] = './api-handler/components/pages/page_transliterator.php';

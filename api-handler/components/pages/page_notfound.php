@@ -3,24 +3,24 @@
 /* 404 Not found page */
 
 ?>
-<section>
+<article class='not-found-section'>
     <header>
         <h1>404 Page not found</h1>
     </header>
 
     <p>Perhaps due to the magic mummery of <b>Yamm</b> or a
     curse cast by <b>Mot</b> himself, the requested page was not found.</p>
-</section>
+</article>
 
 <style>
 
-    header {
+    .not-found-section header {
         text-align: center;
         color: #fff;
         padding: 1rem;
     }
 
-    p {
+    .not-found-section p {
         text-align: center;
         font-size: .9em;
         padding: 0 1rem;
