@@ -10,5 +10,5 @@
 INSERT INTO SEARCH_WORD
     (WORD, TRANSLATION, CUNEIFORM, INFORMATION)
 VALUES
-    ('shapashu', 'sun', '𐎌𐎔𐎌 ', '');
+    ('bi-rashu', 'in the beginning', '⁠𐎁𐎗𐎌', '');
 
