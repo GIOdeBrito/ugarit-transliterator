@@ -20,7 +20,7 @@ class __UgaritDB
         $this->pdo = NULL;
     }
 
-    function query ($cmd, $args = array())
+    function query ($cmd, $args = array()): array
     {
         $res = $this->pdo->prepare($cmd);
 
@@ -66,7 +66,7 @@ class __UgaritDB
 
 class UDatabase extends __UgaritDB
 {
-    protected $db = './sql/ugarit_database.db';
+    protected $db = './dbaccess/ugarit_database.db';
 }
 
 ?>

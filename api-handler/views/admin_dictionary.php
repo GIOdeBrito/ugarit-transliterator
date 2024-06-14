@@ -87,8 +87,8 @@ require_once 'include/ugarit_database.php';
 
 <script type="module">
 
-    import { searchTable } from "./js/table-search.js";
-    import { HttpRequest } from "./js/httpreq.js";
+    import { searchTable } from "/assets/js/table-search.js";
+    import { HttpRequest } from "/assets/js/httpreq.js";
 
     window.addEventListener('load', () =>
     {

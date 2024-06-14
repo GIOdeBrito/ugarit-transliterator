@@ -5,7 +5,7 @@
 ?>
 <article class="page-head">
     <header>
-        <h1>Ugarit Transliterator</h1>
+        <h1><mark>U</mark>garit Transliterator</h1>
 
         <hr>
 
@@ -20,7 +20,7 @@
 
 <script type='module'>
 
-    import { PageManager } from "./js/webpage-components.js";
+    import { PageManager } from "/assets/js/webpage-components.js";
 
     window.addEventListener('load', () =>
     {
@@ -58,16 +58,25 @@
         border-width: 6px;
         text-align: center;
     }
+
     .page-head > header {
         position: sticky;
         top: 0;
         left: 0;
     }
+
     .page-head > header > h1 {
         margin: 0.95rem;
         font-weight: 500;
         word-break: break-word;
     }
+
+    .page-head > header > h1 > mark {
+        background-color: #0000;
+        color: var(--color-golden-strong);
+        font-size: 2rem;
+    }
+
     .page-head > header > hr {
         overflow: visible;
         border: none;
@@ -75,6 +84,7 @@
         color: var(--color-bordercolor);
         margin: 0 auto;
     }
+
     .page-head > header > hr:after {
         background-color: var(--color-foreground);
         top: -1.1em;

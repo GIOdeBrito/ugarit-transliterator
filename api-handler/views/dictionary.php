@@ -35,7 +35,7 @@
     </table>
 </section>
 
-<script type="module" src='./js/pages/dictionary.js'></script>
+<script type="module" src='/assets/js/views/dictionary.js'></script>
 
 <style>
 

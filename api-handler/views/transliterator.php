@@ -34,7 +34,7 @@
 
 <script type='module'>
 
-    import { convertTextToCuneiform, setGlobal } from "./js/transliterator.js";
+    import { convertTextToCuneiform, setGlobal } from "/assets/js/transliterator.js";
 
     window.addEventListener('load', () => 
     {
