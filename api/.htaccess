@@ -1,0 +1,3 @@
+# Blocks access to the folder's content
+Order allow,deny
+Deny from all

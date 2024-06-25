@@ -1,0 +1,11 @@
+ 
+### FILES TO EXCLUDE ###
+
+README.md
+LICENSE
+docker-compose.yml
+Dockerfile
+
+## FOLDERS TO EXCLUDE ##
+
+backend/

@@ -2,7 +2,7 @@
 
 function action_start ($action, $args): void
 {
-    require_once './actions_registered.php';
+    require_once 'actions_registered.php';
 
     try
     {

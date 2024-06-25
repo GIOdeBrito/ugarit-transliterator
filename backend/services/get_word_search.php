@@ -1,6 +1,6 @@
 <?php
 
-require_once './include/ugarit_database.php';
+require_once 'include/ugarit_database.php';
 
 $query_sql =
     "SELECT *

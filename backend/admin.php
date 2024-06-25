@@ -19,6 +19,7 @@ if(!isset($_POST['action']) || !isset($_POST['args']))
 }
 
 session_start();
+
 define('UGARIT_VERSION', '1.0.0');
 
 if(!isset($_SESSION['USER_GLOBAL']))

@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+    app:
+        image: main-ugarit:latest
+        container_name: ugarit-main-website
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "3000:80"
+        networks:
+            - ugarit-network
+        tty: true
+
+    service-server:
+        image: server-ugarit:latest
+        container_name: server-ugarit
+        build:
+            context: ./backend/
+            dockerfile: Dockerfile
+        ports:
+            - "3001:80"
+        networks:
+            - ugarit-network
+        tty: true
+
+networks:
+    ugarit-network:
+        name: ugarit-network
+        external: true
