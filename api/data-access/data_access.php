@@ -6,6 +6,7 @@ class UDataAccess
     protected $form_data = array('action' => '', 'args' => array('' => ''));
 
     protected $req_url = 'https://animated-broccoli-g5vqj6qv9wqfwx5p-3001.app.github.dev/admin.php';
+    //protected $req_url = 'https://localhost:3001/admin.php';
     
     function __construct ()
     {
@@ -58,7 +59,5 @@ class UDataAccess
         }
     }
 }
-
-
 
 ?>

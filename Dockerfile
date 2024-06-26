@@ -3,5 +3,17 @@ FROM php:8.1-apache
 
 COPY . /var/www/html/
 
+# Copy custom apache2 configuration file
+COPY apache2/apache2.conf /etc/apache2/
+
+# Copy virtual host file for available sites
+COPY apache2/000-default.conf /etc/apache2/sites-available
+
+# Enables the rewrite module for .htaccess
+RUN a2enmod rewrite
+
+# Destroys the copied apache2 folder
+RUN rm -rf apache2/
+
 # Expose port 80
 EXPOSE 80

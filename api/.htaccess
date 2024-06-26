@@ -1,3 +1,5 @@
-# Blocks access to the folder's content
-Order allow,deny
-Deny from all
+
+
+# Redirects all request to index.php
+RewriteEngine on
+RewriteRule /(.*)$ /api/index.php [L]
