@@ -12,15 +12,13 @@ if($_SERVER['REQUEST_METHOD'] === 'GET')
 
         default:
             header('HTTP/2 400 Bad Request');
-            die('Route version not valid.');
+            die('Route not valid.');
         break;
     }
 }
 
 class GetV1
 {
-    
-    
     function __construct ()
     {
         $this->params = explode('/', $_SERVER['REQUEST_URI']);
@@ -46,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
         break;
 
         default:
-            die('Route version not valid.');
+            die('Route not valid.');
         break;
     }
 }
