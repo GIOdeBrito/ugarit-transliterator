@@ -14,7 +14,7 @@ function HttpRequest (action = String(), args = Object(), files = Array(), type 
     }
     
     const xmlreq = new XMLHttpRequest();
-    const url = '/api-handler/admin.php';
+    const url = '/api/v1/index.php';
 
     xmlreq.open(type, url, true);
     xmlreq.send(fdata);

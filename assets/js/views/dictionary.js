@@ -12,31 +12,37 @@ function searchBarControls ()
     let current_queue = null;
     let searcher = document.querySelector('input[name="search"]');
 
-    searcher.oninput = () =>
+    searcher.oninput = async () =>
     {
         if(current_queue)
         {
             clearInterval(current_queue);
+            console.log('Queue stopped');
             current_queue = null;
         }
 
         let value = searcher?.['value'];
-        let json = {
+        
+        const json = {
             param: value.split(' ')[0]
         };
 
         current_queue = setTimeout(async () =>
         {
             let res = await HttpRequest('getdictionaryword', json);
-            let content = TryParseJson(res.response);
+            
+            let content = TryParseJson(res['response']);
 
-            if (!content) {
+            if(!content)
+            {
                 console.error('Empty result');
                 return;
             }
 
-            createTableItems(content.result);
-        }, 900);
+            let result = TryParseJson(content.response);
+
+            createTableItems(result.result);
+        }, 600);
     };
 }
 
