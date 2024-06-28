@@ -2,7 +2,7 @@
 
 /* Page location script */
 
-$page_param = $_GET['view'];
+$page_param = $_GET['view'] ?? 'home';
 
 $page_settings = array();
 $page_settings['HEAD'] = 'api/components/page_header.php';

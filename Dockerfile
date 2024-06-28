@@ -12,8 +12,9 @@ COPY apache2/000-default.conf /etc/apache2/sites-available
 # Enables the rewrite module for .htaccess
 RUN a2enmod rewrite
 
-# Destroys the copied apache2 folder
+# Destroys the copied apache2 folder and dockerignore file
 RUN rm -rf apache2/
+RUN rm .dockerignore
 
 # Expose port 80
 EXPOSE 80

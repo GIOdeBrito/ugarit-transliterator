@@ -9,3 +9,4 @@ Dockerfile
 ## FOLDERS TO EXCLUDE ##
 
 backend/
+.git/
