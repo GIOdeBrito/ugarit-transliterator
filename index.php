@@ -2,7 +2,7 @@
 
 /* HTML document root */
 
-require 'api/routing/pages_location.php';
+require 'api/routing/v2/pages_location.php';
 
 ?>
 <!DOCTYPE html>

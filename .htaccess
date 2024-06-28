@@ -1,0 +1,11 @@
+# Redirection for base root views
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?$ index.php?view=$1 [L,QSA]
+
+# Redirection for articles
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^articles/([^/]+)/?$ index.php?category=articles&view=$1 [L,QSA]
