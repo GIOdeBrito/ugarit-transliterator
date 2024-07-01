@@ -17,10 +17,22 @@ services:
         image: server-ugarit:latest
         container_name: server-ugarit
         build:
-            context: ./backend/
+            context: ./services/backend
             dockerfile: Dockerfile
         ports:
             - "3001:80"
+        networks:
+            - ugarit-network
+        tty: true
+
+    service-media.d:
+        image: media-ugarit:latest
+        container_name: server-ugarit-media
+        build:
+            context: ./services/media.d
+            dockerfile: Dockerfile
+        ports:
+            - "3002:80"
         networks:
             - ugarit-network
         tty: true

@@ -16,7 +16,7 @@
 
 <section class='inputbox'>
     <input name='search' type="text" value="">
-    <img src="./assets/icons/magnifier.webp" width=30 alt="magnifier">
+    <img src="/public/icons/magnifier.webp" width=30 alt="magnifier">
 </section>
 
 <section>
@@ -35,7 +35,7 @@
     </table>
 </section>
 
-<script type="module" src='/assets/js/views/dictionary.js'></script>
+<script type="module" src='/public/src/views/dictionary.js'></script>
 
 <style>
 

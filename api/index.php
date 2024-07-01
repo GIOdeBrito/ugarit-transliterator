@@ -1,5 +1,7 @@
 <?php
 
+header('Access-Control-Allow-Methods: GET, POST');
+
 $route = strtolower(explode('/', $_SERVER['REQUEST_URI'])[2]);
 
 if($_SERVER['REQUEST_METHOD'] === 'GET')
@@ -19,19 +21,40 @@ if($_SERVER['REQUEST_METHOD'] === 'GET')
 
 class GetV1
 {
+    private $action = '';
+    private $args = array('' => '');
+    
     function __construct ()
     {
-        $this->params = explode('/', $_SERVER['REQUEST_URI']);
+        $params = explode('/', $_SERVER['REQUEST_URI']);
 
         //echo "params ".print_r($this->params);
 
-        $this->action = $this->params[3];
-        $this->args = array_slice($this->params, 3);
+        $this->action = $params[3];
+        $this->args = array_slice($params, 4);
+
+        $method = $this->action;
+
+        if(method_exists($this, $this->action))
+        {
+            $this->{$method}();
+            return;
+        }
+        
+        header('HTTP/2 400 Bad Request');
+        die('GET action not found.');
     }
 
-    function __destruct ()
+    function mediad ()
     {
-        $this->params = NULL;
+        require_once 'data-access/data_access.php';
+
+        $request = new UDataAccess();
+        $response = $request->send();
+
+        http_response_code(200);
+        readfile($request->response);
+        die();
     }
 }
 
@@ -72,7 +95,13 @@ class PostV1
         $this->send_request_to_server();
     }
 
-    function send_request_to_server ()
+    function __destruct ()
+    {
+        $action = NULL;
+        $args = NULL;
+    }
+
+    function send_request_to_server (): void
     {
         require_once 'data-access/data_access.php';
         

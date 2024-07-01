@@ -12,7 +12,7 @@
 
     <script type='module'>
 
-        import { HttpRequest } from './assets/js/httpreq.js';
+        import { HttpRequest } from '/public/src/httpreq.js';
 
         window.addEventListener('load', async () =>
         {

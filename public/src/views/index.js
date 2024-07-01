@@ -2,14 +2,12 @@
 
 window.addEventListener('DOMContentLoaded', function ()
 {
-    sort_tags();
+    sortTags();
 });
 
-function sort_tags ()
+function sortTags ()
 {
     Array.from(document.getElementsByTagName('script')).forEach(tag => document.head.appendChild(tag));
 
     Array.from(document.getElementsByTagName('style')).forEach(tag => document.head.appendChild(tag));
 }
-
-

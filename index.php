@@ -11,8 +11,8 @@ require 'api/routing/v2/pages_location.php';
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php echo $page_obj->TITLE; ?> - Ugarit Transliterator</title>
-        <link rel="stylesheet" href="assets/theme.css">
-        <script type='module' src='assets/js/views/index.js'></script>
+        <link rel="stylesheet" href="/public/theme.css">
+        <script type='module' src='/public/src/views/index.js'></script>
     </head>
 
     <body>
