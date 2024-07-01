@@ -45,16 +45,10 @@ class GetV1
         die('GET action not found.');
     }
 
-    function mediad ()
+    function media (): void
     {
-        require_once 'data-access/data_access.php';
-
-        $request = new UDataAccess();
-        $response = $request->send();
-
-        http_response_code(200);
-        readfile($request->response);
-        die();
+        header('Location: https://animated-broccoli-g5vqj6qv9wqfwx5p-3002.app.github.dev/?file='.$this->args[0]);
+        //header('Location: localhost:3002/?file='.$this->args[0]);
     }
 }
 
@@ -67,6 +61,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
         break;
 
         default:
+            header('HTTP/2 400 Bad Request');
             die('Route not valid.');
         break;
     }

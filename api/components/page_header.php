@@ -20,7 +20,7 @@
 
 <script type='module'>
 
-    import { PageManager } from "/public/js/webpage-components.js";
+    import { PageManager } from "/public/src/webpage-components.js";
 
     window.addEventListener('load', () =>
     {
