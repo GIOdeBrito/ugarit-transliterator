@@ -39,18 +39,16 @@ function searchBarControls ()
                 return;
             }
 
-            let result = TryParseJson(content.response);
-
-            createTableItems(result.result);
+            createTableItems(content?.result);
         }, 600);
     };
 }
 
 function createTableItems (itemArray = Array())
-{
+{   
     let tbody = window['item-table-body'];
 
-    if(itemArray.length === 0)
+    if(itemArray?.length === 0)
     {
         tbody.parentElement.hidden = true;
         return;

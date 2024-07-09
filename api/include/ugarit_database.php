@@ -66,7 +66,7 @@ class __UgaritDB
 
 class UDatabase extends __UgaritDB
 {
-    protected $db = './dbaccess/ugarit_database.db';
+    protected $db = 'data-access/ugarit_database.db';
 }
 
 ?>

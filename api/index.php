@@ -4,6 +4,10 @@ header('Access-Control-Allow-Methods: GET, POST');
 
 $route = strtolower(explode('/', $_SERVER['REQUEST_URI'])[2]);
 
+session_start();
+
+define('UGARIT_VERSION', '1.0.0');
+
 if($_SERVER['REQUEST_METHOD'] === 'GET')
 {
     switch($route)
@@ -44,12 +48,6 @@ class GetV1
         header('HTTP/2 400 Bad Request');
         die('GET action not found.');
     }
-
-    function media (): void
-    {
-        header('Location: https://animated-broccoli-g5vqj6qv9wqfwx5p-3002.app.github.dev/?file='.$this->args[0]);
-        //header('Location: localhost:3002/?file='.$this->args[0]);
-    }
 }
 
 if($_SERVER['REQUEST_METHOD'] === 'POST')
@@ -87,7 +85,7 @@ class PostV1
             $this->args = json_decode($_POST['args']);
         }
 
-        $this->send_request_to_server();
+        $this->process_request();
     }
 
     function __destruct ()
@@ -96,23 +94,10 @@ class PostV1
         $args = NULL;
     }
 
-    function send_request_to_server (): void
+    function process_request ()
     {
-        require_once 'data-access/data_access.php';
-        
-        $request = new UDataAccess();
-        $request->set_action($this->action);
-
-        foreach($this->args as $key => $value)
-        {
-            $request->add_param($key, $value);
-        }
-
-        $response = $request->send();
-
-        http_response_code(200);
-        echo json_encode([ 'action' => $this->action, 'response' => $response ]);
-        die();
+        require_once './actions.php';
+        action_start($this->action, $this->args);
     }
 }
 

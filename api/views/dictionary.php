@@ -16,7 +16,7 @@
 
 <section class='inputbox'>
     <input name='search' type="text" value="">
-    <img src="/api/v1/media/magnifier.webp" width=30 alt="magnifier">
+    <img src="/public/images/magnifier.webp" width=30 alt="magnifier">
 </section>
 
 <section>

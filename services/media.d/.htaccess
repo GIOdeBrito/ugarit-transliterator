@@ -1,8 +1,0 @@
-# Blocks access to the folder's content
-Order allow,deny
-Deny from all
-
-# Allows only admin.php
-<FilesMatch ^(index\.php)?$>
-    Allow from all
-</FilesMatch>
