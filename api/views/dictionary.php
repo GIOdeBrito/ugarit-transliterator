@@ -4,10 +4,6 @@
 
 ?>
 <section class='dictionary-header'>
-    <header>
-        <h1>Ugaritic Dictionary</h1>
-    </header>
-
     <section>
         <p>You can use the '%' character for advanced searching.</p>
         <p>Example: Use <mark class='highlight'>a%</mark> to display all entries that begin with the letter 'a'.</p>
@@ -38,13 +34,6 @@
 <script type="module" src='/public/src/views/dictionary.js'></script>
 
 <style>
-
-    .dictionary-header > header > h2, h1 {
-        text-align: center;
-        color: #fff;
-        letter-spacing: 0;
-        font-weight: 300;
-    }
 
     .dictionary-header > section {
         margin: 1rem 0;

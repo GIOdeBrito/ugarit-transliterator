@@ -38,6 +38,7 @@ function parseToConvertArray (text = String())
     }
     
     let textArray = text.toLocaleLowerCase().split('');
+
     // Gets list of known digraphs
     let digraphs = getAlphabetDigraphs();
 

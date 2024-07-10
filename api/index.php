@@ -48,6 +48,11 @@ class GetV1
         header('HTTP/2 400 Bad Request');
         die('GET action not found.');
     }
+
+    function transliterate ()
+    {
+        require_once 'services/get/transliterate.php';
+    }
 }
 
 if($_SERVER['REQUEST_METHOD'] === 'POST')

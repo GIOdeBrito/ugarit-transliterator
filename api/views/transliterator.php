@@ -3,12 +3,6 @@
 /* Transliterator page */
 
 ?>
-<section class='title'>
-    <header>
-        <h2>Transliterator</h2>
-    </header>
-</section>
-
 <section class="config-field">
     <fieldset>
         <legend>Configuration:</legend>
@@ -64,12 +58,6 @@
 
 <style>
 
-    .title > header {
-        color: #fff;
-        text-align: center;
-        margin: 2rem;
-    }
-
     .config-field > fieldset {
         color: #fff;
         border-style: dashed;
@@ -87,6 +75,14 @@
     .input-section > p {
         color: #fff;
         font-size: 1.6rem;
+    }
+
+    #text-transliterate-in {
+        font-family: 'Noto Sans Ugaritic';
+    }
+
+    #result-label {
+        font-family: 'Noto Sans Ugaritic';
     }
 
 </style>
