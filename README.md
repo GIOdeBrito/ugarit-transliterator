@@ -11,12 +11,6 @@ where I aim to make a tool to help understand, and record, the long forgotten ug
 
 ## Run: step-by-step
 
-Create the network that will enrobe the containers.
-
-```bash
-sudo docker network create ugarit-network
-```
-
 Build the images with ``docker composer.``
 
 ```bash

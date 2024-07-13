@@ -14,10 +14,6 @@
             <label for="radio-omitvowel">Format:</label>
             <input id="radio-omitvowel" type="radio" name="use-vowels">
         </section>
-
-        <section>
-
-        </section>
     </fieldset>
 </section>
 
@@ -28,17 +24,22 @@
 
 <script type='module'>
 
-    import { convertTextToCuneiform, setGlobal } from "/public/src/transliterator.js";
+    /*import { convertTextToCuneiform, setGlobal } from "/public/src/transliterator.js";*/
+	import { HttpGet } from "/public/src/httpreq.js";
 
-    window.addEventListener('load', () => 
+    window.addEventListener('load', function ()
     {
-        window['text-transliterate-in'].oninput = function ()
+        window['text-transliterate-in'].oninput = async function ()
         {
-            let res = convertTextToCuneiform(this.value);
-            window['result-label'].textContent = res;
+            //let res = convertTextToCuneiform(this.value);
+
+			let res = await HttpGet(`/api/v1/transliterate/${this.value}/`);
+			//console.log(res);
+
+            window['result-label'].textContent = res?.['rawtext'];
         };
 
-        configurations();
+        //configurations();
     });
 
     function configurations ()
@@ -47,7 +48,7 @@
         {
             setGlobal('omitVowels', false);
         };
-        
+
         window['radio-omitvowel'].onchange = () =>
         {
             setGlobal('omitVowels', true);

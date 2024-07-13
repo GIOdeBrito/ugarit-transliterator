@@ -1,4 +1,5 @@
 
+import { TryParseJson } from './json-tools.js';
 
 function HttpRequest (action = String(), args = Object(), files = Array(), type = 'POST')
 {
@@ -12,7 +13,7 @@ function HttpRequest (action = String(), args = Object(), files = Array(), type 
     {
         Array.from(files).forEach(file => fdata.append('uploaded_file[]', file));
     }
-    
+
     const xmlreq = new XMLHttpRequest();
     const url = '/api/v1/index.php';
 
@@ -29,7 +30,18 @@ function HttpRequest (action = String(), args = Object(), files = Array(), type 
     });
 }
 
+async function HttpGet (actionUrl = String())
+{
+	let request = await fetch(actionUrl);
+	let text = await request.text();
+
+	let json = TryParseJson(text);
+
+	return { json: json, rawtext: text };
+}
+
 export {
-    HttpRequest
+    HttpRequest,
+	HttpGet
 }
 

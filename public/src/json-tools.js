@@ -6,13 +6,13 @@ function TryParseJson (text)
         return null;
     }
 
-    try 
+    try
     {
         return JSON.parse(text);
     }
     catch(ex)
     {
-        console.error(ex);
+        //console.error(ex);
         return null;
     }
 }
