@@ -1,6 +1,7 @@
 
 import { HttpRequest } from "../httpreq.js";
 import { TryParseJson } from "../json-tools.js";
+import TableSearch from "../table-search.js";
 
 window.addEventListener('load', () =>
 {
@@ -22,7 +23,7 @@ function searchBarControls ()
         }
 
         let value = searcher?.['value'];
-        
+
         const json = {
             param: value.split(' ')[0]
         };
@@ -30,7 +31,7 @@ function searchBarControls ()
         current_queue = setTimeout(async () =>
         {
             let res = await HttpRequest('getdictionaryword', json);
-            
+
             let content = TryParseJson(res['response']);
 
             if(!content)
@@ -45,7 +46,7 @@ function searchBarControls ()
 }
 
 function createTableItems (itemArray = Array())
-{   
+{
     let tbody = window['item-table-body'];
 
     if(itemArray?.length === 0)
@@ -86,5 +87,7 @@ function createTableItems (itemArray = Array())
     itemArray.forEach(item => func_CreateTableItem(item));
 
     tbody.parentElement.hidden = false;
+
+	TableSearch.all[0].getRows();
 }
 

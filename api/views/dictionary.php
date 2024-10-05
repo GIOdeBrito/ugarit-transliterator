@@ -11,12 +11,12 @@
 </section>
 
 <section class='inputbox'>
-    <input name='search' type="text" value="">
+    <input name='search' type="text" class="input-decorative input-hstretch padding-5">
     <img src="/public/images/magnifier.webp" width=30 alt="magnifier">
 </section>
 
 <section>
-    <table hidden>
+    <table hidden data-table-search>
         <thead>
             <tr>
                 <th>Word</th>
@@ -48,11 +48,6 @@
     .highlight {
         background-color: #0000;
         color: var(--color-golden-strong);
-    }
-
-    input[type=text] {
-        padding: .5rem;
-        width: 50vw;
     }
 
     .inputbox {

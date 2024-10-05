@@ -1,7 +1,15 @@
 
 import { TryParseJson } from './json-tools.js';
 
-function HttpRequest (action = String(), args = Object(), files = Array(), type = 'POST')
+/**
+* Makes a simple http request to get or post data to an endpoint.
+* @param {string} action
+* @param {Object} args
+* @param {string[]} files
+* @param {string} type
+* @returns {Object}
+*/
+function HttpRequest (action, args = Object(), files = Array(), type = 'POST')
 {
     const fdata = new FormData();
 
@@ -30,11 +38,16 @@ function HttpRequest (action = String(), args = Object(), files = Array(), type 
     });
 }
 
+/**
+* Performs a simple http request and fetches a resource.
+* @param {string} actionUrl
+* @returns {Object}
+*/
 async function HttpGet (actionUrl = String())
 {
 	let request = await fetch(actionUrl);
-	let text = await request.text();
 
+	let text = await request.text();
 	let json = TryParseJson(text);
 
 	return { json: json, rawtext: text };

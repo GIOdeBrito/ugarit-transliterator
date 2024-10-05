@@ -43,6 +43,7 @@ button {
     padding: .4rem;
     border-color: var(--color-bordercolor);
 }
+
 button:hover {
     background-color: var(--color-bordercolor);
     cursor: pointer;
@@ -59,10 +60,6 @@ textarea {
 
 input {
     box-sizing: border-box;
-    border-style: double;
-    border-color: var(--color-golden);
-    border-width: 6px;
-    background-color: var(--color-bordercolor);
     color: #fff;
 }
 
@@ -82,13 +79,16 @@ table {
     width: 100%;
     color: #fff;
 }
+
 table > thead > tr > th {
     padding: 10px;
     background-color: var(--color-foreground);
 }
+
 table > tbody > tr:nth-child(odd) {
     background-color: #311808;
 }
+
 table > tbody > tr > th {
     padding: 10px;
 }

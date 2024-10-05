@@ -1,0 +1,25 @@
+
+.padding-5 {
+	padding: 5rem;
+}
+
+.input-decorative {
+	border-style: double;
+	border-color: var(--color-golden);
+	border-width: 6px;
+	background-color: var(--color-bordercolor);
+}
+
+.input-hstretch {
+	width: 50vw;
+}
+
+.input-simple {
+	padding: .2rem;
+	border-style: solid;
+	width: auto;
+	border-width: 2px;
+	border-color: var(--color-golden);
+	background-color: var(--color-bordercolor);
+}
+

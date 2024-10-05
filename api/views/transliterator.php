@@ -18,7 +18,7 @@
 </section>
 
 <section class="input-section">
-    <textarea id="text-transliterate-in" rows=4 cols=50></textarea>
+    <textarea id="text-transliterate-in" rows=4 cols=50 class="input-decorative"></textarea>
     <p id="result-label"></p>
 </section>
 

@@ -3,121 +3,81 @@
 
 class __NS
 {
-    static __namespaceCollection = [];
+	static __namespaceCollection = [];
 }
 
 class Namespace
 {
-    constructor ()
-    {
-        let name = this.constructor.name;
+	constructor ()
+	{
+		let name = this.constructor.name;
 
-        // Invoke 'self' constructor function
-        this.invoke(name);
-    }
+		// Invoke 'self' constructor function
+		this.invoke(name);
+	}
 
-    static staticConstructor ()
-    {
-        let has = __NS.__namespaceCollection.find(item => item === this);
+	static staticConstructor ()
+	{
+		let has = __NS.__namespaceCollection.find(item => item === this.name);
 
-        if(has)
-        {
-            return;
-        }
-
-        __NS.__namespaceCollection.push(this);
-
-        // This namespace's name
-        let name = this.name;
-
-        if(!this?.[name])
-        {
-            return;
-        }
-
-        // Invoke self static constructor
-        this.invoke(this.name);
-    }
-
-    invoke (funcname, ...params)
-    {
-		try
+		if(has)
 		{
-			// If instead it is a common function
-			return this?.[funcname](...params);
-        }
-        catch(ex)
+			return;
+		}
+
+		__NS.__namespaceCollection.push(this.name);
+
+		// This namespace's name
+		let name = this.name;
+
+		if(!this?.[name])
 		{
-            return null;
-        }
-    }
+			return;
+		}
+
+		// Invoke self static constructor
+		this.invoke(this.name);
+	}
+
+	/* INSTANCE FUNCTIONS */
+
+	invoke (funcname, ...params)
+	{
+		if(this.hasOwnProperty(funcname)) return this?.[funcname](...params) ?? null;
+	}
 
 	invokeGet (funcname)
 	{
-		return this?.[funcname];
+		if(this.hasOwnProperty(funcname)) return this?.[funcname] ?? null;
 	}
 
 	invokeSet (funcname, value)
 	{
-		this[funcname] = value;
+		this.hasOwnProperty(funcname) && (this[funcname] = value);
 	}
 
-    static invoke (funcname, ...params)
-    {
-        // Checks for static constructor of function
-        this.staticConstructor();
+	/* STATIC FUNCTIONS */
 
-        try
-		{
-			// If instead it is a common function
-			return this?.[funcname](...params);
-        }
-        catch(ex)
-		{
-            return null;
-        }
-    }
+	static invoke (funcname, ...params)
+	{
+		// Calls static constructor of class
+		this.staticConstructor();
+		if(this.hasOwnProperty(funcname)) return this?.[funcname](...params);
+	}
 
 	static invokeGet (funcname)
 	{
-		return this?.[funcname];
+		this.staticConstructor();
+		if(this.hasOwnProperty(funcname)) return this?.[funcname] ?? null;
 	}
 
 	static invokeSet (funcname, value)
 	{
-		this[funcname] = value;
+		this.staticConstructor();
+		this.hasOwnProperty(funcname) && (this[funcname] = value);
 	}
 }
 
-class Gio extends Namespace
-{
-	#name = '';
+export default Namespace;
 
-	Gio ()
-	{
-	    console.log('starting');
-	}
 
-	beckon ()
-	{
-		console.log(this.#name + '! This is the name I call for!');
-	}
-
-	set Name (val)
-	{
-		this.#name = val;
-	}
-
-	get Name ()
-	{
-		return this.#name;
-	}
-}
-
-const a = new Gio();
-
-a.invokeSet('Name', 'Gio Bruno Magnos de Brito');
-
-console.log(a.invokeGet('Name'));
-
-a.invoke('beckon');
