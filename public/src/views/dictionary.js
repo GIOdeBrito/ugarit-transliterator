@@ -8,6 +8,10 @@ window.addEventListener('load', () =>
     searchBarControls();
 });
 
+/**
+* Set controls for the dictionary page.
+* @returns {void}
+*/
 function searchBarControls ()
 {
     let current_queue = null;
@@ -45,7 +49,11 @@ function searchBarControls ()
     };
 }
 
-function createTableItems (itemArray = Array())
+/**
+* Create the table and items based on the network response.
+* @param {object} itemArray
+*/
+function createTableItems (itemArray)
 {
 	if(itemArray?.length === 0)
     {
@@ -98,6 +106,8 @@ function createTableItem ({ word, translation, logograms, information })
 	let wordcell = document.createElement('th');
 	row.appendChild(wordcell);
 
+	wordcell.title = toUgPlural(word);
+
 	let rubynotation = document.createElement('ruby');
 	rubynotation.innerText = word;
 	wordcell.appendChild(rubynotation);
@@ -116,5 +126,29 @@ function createTableItem ({ word, translation, logograms, information })
 	row.appendChild(infor);
 
 	dictionaryTableBody().appendChild(row);
+}
+
+/**
+* Converts a singular word to its plural forms.
+* @param {string} baseword
+* @returns {string} Returns an long form of plurals.
+*/
+function toUgPlural (baseword)
+{
+    let vowels = [ 'a', 'e', 'i', 'o', 'u' ];
+
+    if(vowels.includes(baseword.charAt(baseword.length - 1)))
+    {
+        baseword = baseword.substring(0, baseword.length - 1);
+    }
+
+    let infor = '';
+
+    infor += 'Plural: ' + baseword + 'uma \n';
+    infor += 'Construct: ' + baseword + 'ê \n';
+    infor += 'F. Plural: ' + baseword + 'atu \n';
+    infor += 'F. Construct: ' + baseword + 'atê \n';
+
+    return infor;
 }
 
