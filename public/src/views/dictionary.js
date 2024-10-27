@@ -47,47 +47,74 @@ function searchBarControls ()
 
 function createTableItems (itemArray = Array())
 {
-    let tbody = window['item-table-body'];
-
-    if(itemArray?.length === 0)
+	if(itemArray?.length === 0)
     {
-        tbody.parentElement.hidden = true;
+        dictionaryTableBody().parentElement.hidden = true;
         return;
     }
 
-    if(Array.from(tbody.children).length > 0)
+    if(Array.from(dictionaryTableBody().children).length > 0)
     {
-        tbody.innerHTML = String();
+        dictionaryTable().clear();
     }
 
-    // Creates the items for the table
-    const func_CreateTableItem = ({ word, translation, logograms, information }) =>
-    {
-        let row = document.createElement('tr');
+    itemArray.map(item => createTableItem(item));
 
-        let wordcell = document.createElement('th');
-        wordcell.textContent = word;
-        row.appendChild(wordcell);
+    dictionaryTableBody().parentElement.hidden = false;
 
-        let translate = document.createElement('th');
-        translate.textContent = translation;
-        row.appendChild(translate);
+	dictionaryTable().getRows();
+}
 
-        let cuneo = document.createElement('th');
-        cuneo.textContent = logograms;
-        row.appendChild(cuneo);
+/**
+* Returns the main dictionary table.
+* @returns {TableSearchModel}
+*/
+function dictionaryTable ()
+{
+	return TableSearch.all[0];
+}
 
-        let infor = document.createElement('th');
-        infor.textContent = information;
-        row.appendChild(infor);
+/**
+* Returns the main dictionary table body.
+* @returns {HTMLElement}
+*/
+function dictionaryTableBody ()
+{
+	return TableSearch.all[0].tbody;
+}
 
-        tbody.appendChild(row);
-    };
+/**
+* Creates an item row for the table on the page.
+* @param {object} item - The JSON object containing the properties.
+* @param {string} item.word - The base word transliterated in latin characters.
+* @param {string} item.translation - The translation of the word.
+* @param {string} item.logogram - The word in cuneiform.
+* @param {string} item.information - Extra information for the word.
+*/
+function createTableItem ({ word, translation, logograms, information })
+{
+	let row = document.createElement('tr');
 
-    itemArray.forEach(item => func_CreateTableItem(item));
+	let wordcell = document.createElement('th');
+	row.appendChild(wordcell);
 
-    tbody.parentElement.hidden = false;
+	let rubynotation = document.createElement('ruby');
+	rubynotation.innerText = word;
+	wordcell.appendChild(rubynotation);
 
-	TableSearch.all[0].getRows();
+	let rtWord = document.createElement('rt');
+	rtWord.innerText = logograms;
+	rtWord.style.fontSize = '1.2rem';
+	rubynotation.appendChild(rtWord);
+
+	let translate = document.createElement('th');
+	translate.textContent = translation;
+	row.appendChild(translate);
+
+	let infor = document.createElement('th');
+	infor.textContent = information;
+	row.appendChild(infor);
+
+	dictionaryTableBody().appendChild(row);
 }
 

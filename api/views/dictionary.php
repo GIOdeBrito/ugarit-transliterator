@@ -21,13 +21,11 @@
             <tr>
                 <th>Word</th>
                 <th>Translation</th>
-                <th>Cuneiform</th>
                 <th>Description</th>
             </tr>
         </thead>
 
-        <tbody id="item-table-body">
-        </tbody>
+        <tbody></tbody>
     </table>
 </section>
 
