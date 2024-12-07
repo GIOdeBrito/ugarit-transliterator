@@ -1,0 +1,3 @@
+# Redirects all request to index.php
+RewriteEngine on
+RewriteRule /(.*)$ /api/v1/index.php [L]

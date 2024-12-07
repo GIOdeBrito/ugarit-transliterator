@@ -1,0 +1,27 @@
+
+.dictionary-header > section {
+	margin: 1rem 0;
+}
+
+.dictionary-header > section > p {
+	text-align: center;
+	color: #ffffff4f;
+	margin: 0;
+}
+
+.highlight {
+	background-color: #0000;
+	color: var(--color-golden-strong);
+}
+
+.inputbox {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 2rem;
+}
+
+.inputbox > img {
+	width: 1.25rem;
+	height: 1.25rem;
+	margin: auto 10px;
+}

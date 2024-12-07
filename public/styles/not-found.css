@@ -1,0 +1,12 @@
+
+.not-found-section header {
+	text-align: center;
+	color: #fff;
+	padding: 1rem;
+}
+
+.not-found-section p {
+	text-align: center;
+	font-size: .9em;
+	padding: 0 1rem;
+}

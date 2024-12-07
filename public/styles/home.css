@@ -1,0 +1,11 @@
+
+.header-section {
+	text-align: center;
+}
+
+h1 > mark {
+	font-weight: bold;
+	background-color: #0000;
+	color: #fff;
+	font-size: 2rem;
+}

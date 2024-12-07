@@ -1,17 +1,16 @@
 # Ugarit Transliterator
 
-This is one of my favourite projects, the Ugarit Transliterator
-where I aim to make a tool to help understand, and record, the long forgotten ugaritic language.
+This is one of my favourite projects, the Ugarit Transliterator.
+Where I aim to create a tool to help understand, and record, the long forgotten ugaritic language.
 
 ## Requirements
 
 - A Linux-running machine (Preferably)
-- Docker
-- Docker compose
+- Docker and Docker Compose
 
 ## Run: step-by-step
 
-Build the images with ``docker composer.``
+Build the images with ``docker composer``.
 
 ```bash
 sudo docker-compose build

@@ -134,10 +134,11 @@ class TableSearchModel
 	#tableRow = null;
 
 	/**
-	* @constructor
 	* @param {HTMLInputElement} search - The search bar input element.
 	* @param {HTMLSectionElement} buttons - The group of buttons at the bottom of the table.
 	* @param {HTMLTableElement} table
+	* @returns {TableSearchModel}
+	* @constructor
 	*/
 	constructor (search, buttons, table)
 	{

@@ -1,0 +1,27 @@
+
+.config-field > fieldset {
+	color: #fff;
+	border-style: dashed;
+	margin: 2rem auto;
+	max-width: 400px;
+	border-color: var(--color-golden);
+}
+.config-field > fieldset > legend {
+	font-weight: bold;
+}
+
+.input-section {
+	text-align: center;
+}
+.input-section > p {
+	color: #fff;
+	font-size: 1.6rem;
+}
+
+#text-transliterate-in {
+	font-family: 'Noto Sans Ugaritic';
+}
+
+#result-label {
+	font-family: 'Noto Sans Ugaritic';
+}

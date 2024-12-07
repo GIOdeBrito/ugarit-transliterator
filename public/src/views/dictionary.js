@@ -1,6 +1,6 @@
 
-import { HttpRequest } from "../httpreq.js";
-import { TryParseJson } from "../json-tools.js";
+import { HttpPost } from "../httpreq.js";
+import TryParseJson from "../json-tools.js";
 import TableSearch from "../table-search.js";
 
 window.addEventListener('load', () =>
@@ -34,9 +34,9 @@ function searchBarControls ()
 
         current_queue = setTimeout(async () =>
         {
-            let res = await HttpRequest('getdictionaryword', json);
+            let response = await HttpPost('get-word-search', json);
 
-            let content = TryParseJson(res['response']);
+            let content = TryParseJson(response);
 
             if(!content)
             {

@@ -1,15 +1,12 @@
 
-import { TryParseJson } from './json-tools.js';
-
 /**
 * Makes a simple http request to get or post data to an endpoint.
 * @param {string} action
 * @param {Object} args
 * @param {string[]} files
-* @param {string} type
-* @returns {Object}
+* @returns {string}
 */
-function HttpRequest (action, args = Object(), files = Array(), type = 'POST')
+function HttpPost (action, args = Object(), files = Array(), type = 'POST')
 {
     const fdata = new FormData();
 
@@ -23,38 +20,38 @@ function HttpRequest (action, args = Object(), files = Array(), type = 'POST')
     }
 
     const xmlreq = new XMLHttpRequest();
-    const url = '/api/v1/index.php';
+    const url = '/api/v1/';
 
-    xmlreq.open(type, url, true);
+    xmlreq.open('POST', url, true);
     xmlreq.send(fdata);
 
     return new Promise(resolve =>
     {
-        xmlreq.onload = (res) => resolve({
-            status: xmlreq.status,
-            response: res.target.responseText,
-            raw: res
-        });
+        xmlreq.onload = (res) => resolve(res.target.responseText);
     });
 }
 
 /**
-* Performs a simple http request and fetches a resource.
-* @param {string} actionUrl
-* @returns {Object}
+* Performs a simple http request that fetchs a resource.
+* @param {string} url
+* @returns {object | string}
 */
-async function HttpGet (actionUrl = String())
+async function HttpGet (url = String())
 {
-	let request = await fetch(actionUrl);
+	let response = await fetch(url);
 
-	let text = await request.text();
-	let json = TryParseJson(text);
-
-	return { json: json, rawtext: text };
+	try
+	{
+		return await response.text();
+	}
+	catch (ex)
+	{
+		return await response.json();
+	}
 }
 
 export {
-    HttpRequest,
+    HttpPost,
 	HttpGet
 }
 
