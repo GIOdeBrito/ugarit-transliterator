@@ -1,6 +1,22 @@
 
-.padding-5 {
+.padding-.5 {
 	padding: .5rem;
+}
+
+.padding-8 {
+	padding: 8rem;
+}
+
+.padding-5 {
+	padding: 5rem;
+}
+
+.margin-10 {
+	margin: 10rem;
+}
+
+.margin-4 {
+	margin: 4rem;
 }
 
 .input-decorative {
@@ -37,5 +53,5 @@
 
 .parallax-container {
 	transition: background-position-y 10ms ease;
-	box-shadow: #00000085 0 0 3rem inset;
+	box-shadow: var(--color-background) 0 0 2rem inset;
 }

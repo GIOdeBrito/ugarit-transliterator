@@ -3,16 +3,31 @@
 /* Home page */
 
 ?>
-<article>
+<article class="margin-4">
     <section class='header-section'>
         <header>
             <h1>Welcome to <mark>Ugarit Transliterator</mark></h1>
         </header>
     </section>
+</article>
 
-    <button>This is a button</button>
+<article class="padding-5" data-parallax="public/images/ancient-ruins.webp">
+	<header>
+		<h1>What is Ugarit?</h1>
+	</header>
 
-	<section data-parallax="public/images/ancient-ruins.webp">
-			<h1>This is a parallax background</h1>
-	</section>
+	<p>Ugarit was an ancient port city located in modern-day <i>Ras Shamra</i> at Latakia Governorate, Syria.</p>
+	<p>
+		Founded by Phoenicians, it was heavily disputed by the ancient kingdoms of Aegypt and Mitanni (Hittites).
+		It was with the excavations led by Claude F.A. Schaeffer, that the city was uncovered together with it's
+		enigmatic and intriguing cuneiform alphabet.
+	</p>
+</article>
+
+<article class="margin-4">
+    <section class='header-section'>
+        <header>
+            <h1>Explore the Site</h1>
+        </header>
+    </section>
 </article>

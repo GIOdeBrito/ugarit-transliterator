@@ -35,7 +35,7 @@ main {
 }
 
 button {
-    border-style: double;
+    border-style: solid;
     border-width: 3px;
     border-radius: 4px;
     background-color: var(--color-foreground);

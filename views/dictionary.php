@@ -11,7 +11,7 @@
 </section>
 
 <section class='inputbox'>
-    <input name='search' type="text" class="input-decorative input-hstretch padding-5">
+    <input name='search' type="text" class="input-decorative input-hstretch padding-.5">
     <img src="/public/images/magnifier.webp" width=30 alt="magnifier">
 </section>
 

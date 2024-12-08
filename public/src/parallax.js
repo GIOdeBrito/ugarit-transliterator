@@ -26,6 +26,8 @@ function fetchParallaxElements ()
 			background-size: cover;
 			background-repeat: repeat-y;
 			background-position-y: 50%;
+			background-color: rgba(0, 0, 0, 0.43);
+			background-blend-mode: hard-light;
 		`;
 
 		item.classList.add('parallax-container');
