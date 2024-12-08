@@ -12,6 +12,7 @@ class ViewController extends ModelController
 		$this->viewData['view'] = 'home';
 
 		$this->enqueue_stylesheet('home.css');
+		$this->enqueue_script('parallax.js');
 	}
 }
 

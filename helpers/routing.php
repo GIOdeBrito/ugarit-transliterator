@@ -1,6 +1,6 @@
 <?php
 
-function get_view_controller (): ViewController
+function get_view_controller (): object
 {
 	$slug = $_GET['view'] ?? 'index';
 

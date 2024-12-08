@@ -6,6 +6,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 {
 	session_start();
 	new PostV1();
+	die();
 }
 else
 {
@@ -36,7 +37,7 @@ class PostV1
         $this->invoke();
     }
 
-    function invoke ()
+    function invoke (): void
     {
 		$actionfile = str_replace('-', '_', $this->action);
 
@@ -51,8 +52,6 @@ class PostV1
 		http_response_code(200);
 
 		require_once $file;
-
-		die();
     }
 }
 

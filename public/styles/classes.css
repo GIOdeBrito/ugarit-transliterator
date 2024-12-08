@@ -35,4 +35,7 @@
 	background-color: var(--color-bordercolor);
 }
 
-
+.parallax-container {
+	transition: background-position-y 10ms ease;
+	box-shadow: #00000085 0 0 3rem inset;
+}

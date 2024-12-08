@@ -11,4 +11,8 @@
     </section>
 
     <button>This is a button</button>
+
+	<section data-parallax="public/images/ancient-ruins.webp">
+			<h1>This is a parallax background</h1>
+	</section>
 </article>

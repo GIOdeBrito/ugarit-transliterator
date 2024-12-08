@@ -3,7 +3,7 @@
 	text-align: center;
 }
 
-h1 > mark {
+section[class="header-section"] h1 > mark {
 	font-weight: bold;
 	background-color: #0000;
 	color: #fff;
