@@ -18,16 +18,8 @@
 
 	<p>Ugarit was an ancient port city located in modern-day <i>Ras Shamra</i> at Latakia Governorate, Syria.</p>
 	<p>
-		Founded by Phoenicians, it was heavily disputed by the ancient kingdoms of Aegypt and Mitanni (Hittites).
+		Founded by Phoenicians, it was heavily disputed by the kingdoms of Aegyptus and the Hittites.
 		It was with the excavations led by Claude F.A. Schaeffer, that the city was uncovered together with it's
 		enigmatic and intriguing cuneiform alphabet.
 	</p>
-</article>
-
-<article class="margin-4">
-    <section class='header-section'>
-        <header>
-            <h1>Explore the Site</h1>
-        </header>
-    </section>
 </article>

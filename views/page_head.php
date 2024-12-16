@@ -12,37 +12,11 @@
         <hr>
 
         <nav>
-            <p id='bhome'>Home</p>
-            <p id='btransliterate'>Transliterator</p>
-            <p id='bdicio'>Dictionary</p>
-            <p id='barticle'>Articles</p>
+            <p name='bhome'>Home</p>
+            <p name='btransliterate'>Transliterator</p>
+            <p name='bdicio'>Dictionary</p>
+			<p name='bonomastics'>Onomastics</p>
+            <p name='barticle'>Articles</p>
         </nav>
     </header>
 </article>
-
-<script type='module'>
-
-    window.addEventListener('load', () =>
-    {
-        setHeadControls();
-    });
-
-    function setHeadControls ()
-    {
-        window.bhome.onclick = () =>
-        {
-            window.location = '/';
-        };
-
-        window.btransliterate.onclick = () =>
-        {
-            window.location = 'transliterate';
-        };
-
-        window.bdicio.onclick = () =>
-        {
-            window.location = 'dictionary';
-        };
-    }
-
-</script>

@@ -2,7 +2,9 @@
 
 class __UgaritDB
 {
-    function __construct ()
+	private $pdo = NULL;
+
+	function __construct ()
     {
         try
         {
@@ -33,6 +35,7 @@ class __UgaritDB
         }
 
         $res->execute();
+
         return $res->fetchAll(PDO::FETCH_ASSOC);
     }
 

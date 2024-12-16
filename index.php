@@ -26,6 +26,10 @@ require 'helpers/routing.php';
 		<?php
 	}
 
+	?>
+	<script src="public/src/nav.js" type="module"></script>
+	<?php
+
 	foreach($controller->get_scripts() ?? [] as $item)
 	{
 		?>

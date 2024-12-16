@@ -14,16 +14,15 @@ window.addEventListener('load', () =>
 */
 function searchBarControls ()
 {
-    let current_queue = null;
+    let currentQueue = null;
     let searcher = document.querySelector('input[name="search"]');
 
     searcher.oninput = async () =>
     {
-        if(current_queue)
+        if(currentQueue)
         {
-            clearInterval(current_queue);
-            console.log('Queue stopped');
-            current_queue = null;
+            clearInterval(currentQueue);
+            currentQueue = null;
         }
 
         let value = searcher?.['value'];
@@ -32,7 +31,7 @@ function searchBarControls ()
             param: value.split(' ')[0]
         };
 
-        current_queue = setTimeout(async () =>
+        currentQueue = setTimeout(async () =>
         {
             let response = await HttpPost('get-word-search', json);
 
@@ -131,7 +130,7 @@ function createTableItem ({ word, translation, logograms, information })
 /**
 * Converts a singular word to its plural forms.
 * @param {string} baseword
-* @returns {string} Returns an long form of plurals.
+* @returns {string}
 */
 function toUgPlural (baseword)
 {
