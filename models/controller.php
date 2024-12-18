@@ -2,7 +2,7 @@
 
 class ModelController
 {
-	protected array $viewData = NULL;
+	protected ?array $viewData = NULL;
 
 	public function __construct ()
 	{

@@ -2,7 +2,7 @@
 
 class __UgaritDB
 {
-	private PDO $pdo = NULL;
+	private ?PDO $pdo = NULL;
 
 	function __construct ()
     {

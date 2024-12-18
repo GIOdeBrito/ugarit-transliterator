@@ -16,8 +16,8 @@ else
 
 class PostV1
 {
-    private string $action = NULL;
-    private object $args = NULL;
+    private ?string $action = NULL;
+    private ?object $args = NULL;
 
     function __construct ()
     {
