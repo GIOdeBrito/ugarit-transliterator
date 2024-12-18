@@ -2,7 +2,7 @@
 
 /* Removes unnecessary characters from the main string */
 
-function filter_out_garbage ($str): string
+function filter_out_garbage (string $str): string
 {
     if(str_contains($str, '%20'))
     {

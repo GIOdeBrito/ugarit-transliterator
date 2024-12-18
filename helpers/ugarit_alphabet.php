@@ -2,7 +2,7 @@
 
 class UgaritAlphabet
 {
-	protected $ugarit_characters =
+	protected array $ugarit_characters =
 	[
 		// Alpa
 		'ả' => '𐎀',

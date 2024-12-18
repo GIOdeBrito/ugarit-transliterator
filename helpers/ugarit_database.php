@@ -2,7 +2,7 @@
 
 class __UgaritDB
 {
-	private $pdo = NULL;
+	private PDO $pdo = NULL;
 
 	function __construct ()
     {
@@ -22,7 +22,7 @@ class __UgaritDB
         $this->pdo = NULL;
     }
 
-    function query ($cmd, $args = array()): array
+    function query (string $cmd, array $args = []): array
     {
         $res = $this->pdo->prepare($cmd);
 
@@ -39,7 +39,7 @@ class __UgaritDB
         return $res->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function exec ($cmd, $args): bool
+    function exec (string $cmd, $args = []): bool
     {
         $res = $this->pdo->prepare($cmd);
         $this->pdo->beginTransaction();
@@ -69,7 +69,7 @@ class __UgaritDB
 
 class Database extends __UgaritDB
 {
-    protected $db = __DIR__.'/../database/ugarit_database.db';
+    protected string $db = __DIR__.'/../database/ugarit_database.db';
 }
 
 ?>

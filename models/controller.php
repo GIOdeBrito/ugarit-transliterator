@@ -2,7 +2,7 @@
 
 class ModelController
 {
-	protected $viewData = NULL;
+	protected array $viewData = NULL;
 
 	public function __construct ()
 	{
@@ -37,12 +37,12 @@ class ModelController
 		return $this->viewData['scripts'];
 	}
 
-	protected function enqueue_stylesheet ($filename): void
+	protected function enqueue_stylesheet (string $filename): void
 	{
 		$this->viewData['stylesheets'][] = 'public/styles/'.$filename;
 	}
 
-	protected function enqueue_script ($filename, $is_module = false): void
+	protected function enqueue_script (string $filename, bool $is_module = false): void
 	{
 		$type = 'text/javascript';
 

@@ -17,22 +17,16 @@
 
 			$items = $this->get_onomastics_items();
 
-			$i = 1;
-
 			foreach($items as $item)
 			{
 				?>
-
 				<tr>
 					<td><?php echo $item["ID"]; ?></td>
 					<td><?php echo $item["NAME"]; ?></td>
 					<td><?php echo $item["MEANING"]; ?></td>
 					<td><?php echo $item["ORIGIN"]; ?></td>
 				</tr>
-
 				<?php
-
-				$i++;
 			}
 
 			?>
