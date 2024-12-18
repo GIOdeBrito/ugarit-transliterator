@@ -1,8 +1,11 @@
 <?php
 
+require 'helpers/nonce.php';
+
 class ModelController
 {
 	protected ?array $viewData = NULL;
+	protected ?array $globalVars = NULL;
 
 	public function __construct ()
 	{
@@ -11,6 +14,10 @@ class ModelController
 			'view' => '?View?',
 			'stylesheets' => array(),
 			'scripts' => array()
+		];
+
+		$this->globalVars = [
+			'nonce' => create_nonce()
 		];
 	}
 
@@ -37,6 +44,11 @@ class ModelController
 		return $this->viewData['scripts'];
 	}
 
+	public function get_vars (): array
+	{
+		return $this->globalVars;
+	}
+
 	protected function enqueue_stylesheet (string $filename): void
 	{
 		$this->viewData['stylesheets'][] = 'public/styles/'.$filename;
@@ -52,6 +64,14 @@ class ModelController
 		}
 
 		$this->viewData['scripts'][] = [ 'src' => 'public/src/'.$filename, 'type' => $type ];
+	}
+
+	protected function enqueue_vars (array $values): void
+	{
+		foreach($values as $key => $value)
+		{
+			$this->globalVars[$key] = $value;
+		}
 	}
 }
 

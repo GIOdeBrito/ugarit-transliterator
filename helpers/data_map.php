@@ -2,7 +2,7 @@
 
 function js_data_map (string $name, array $datavalues): void
 {
-	$id = str_shuffle(strval(md5(rand(1000,9999))));
+	$id = md5(rand(1000,9999));
 
 	?>
 	<script id="<?php echo $id; ?>" type="text/javascript">

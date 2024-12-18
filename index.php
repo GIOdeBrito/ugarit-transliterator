@@ -3,6 +3,7 @@
 /* HTML document root */
 
 require 'helpers/routing.php';
+require 'helpers/data_map.php';
 
 ?>
 <!DOCTYPE html>
@@ -29,6 +30,8 @@ require 'helpers/routing.php';
 	?>
 	<script src="public/src/nav.js" type="module"></script>
 	<?php
+
+	js_data_map('SESSION_UG', $controller->get_vars());
 
 	foreach($controller->get_scripts() ?? [] as $item)
 	{

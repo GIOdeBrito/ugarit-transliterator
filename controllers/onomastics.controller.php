@@ -13,6 +13,8 @@ class ViewController extends ModelController
 		$this->viewData['view'] = 'onomastics';
 
 		$this->enqueue_stylesheet('onomastics.css');
+
+		$this->enqueue_vars([ 'time' => date('Y-m-d') ]);
 	}
 
 	public function get_onomastics_items (): array
