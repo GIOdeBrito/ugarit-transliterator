@@ -4,7 +4,7 @@
 * @param {string} text
 * @returns {object | null}
 */
-function TryParseJson (text)
+function tryParseJson (text)
 {
     try
     {
@@ -16,4 +16,7 @@ function TryParseJson (text)
     }
 }
 
-export default TryParseJson;
+
+export {
+	tryParseJson
+}

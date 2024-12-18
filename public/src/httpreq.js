@@ -6,7 +6,7 @@
 * @param {string[]} files
 * @returns {string}
 */
-function HttpPost (action, args = Object(), files = Array(), type = 'POST')
+function HttpPost (action, args = Object(), files = Array())
 {
     const fdata = new FormData();
 
@@ -44,7 +44,7 @@ async function HttpGet (url = String())
 	{
 		return await response.text();
 	}
-	catch (ex)
+	catch(ex)
 	{
 		return await response.json();
 	}

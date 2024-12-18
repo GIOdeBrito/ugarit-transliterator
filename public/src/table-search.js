@@ -35,7 +35,7 @@ function createSearchBar ()
 
 		let sectionButtonControls = document.createElement('section');
 		sectionButtonControls.style = `
-		background: var(--color-foreground);
+			background: var(--color-foreground);
 		`;
 
 		table.after(sectionButtonControls);
@@ -52,17 +52,13 @@ function createSearchBar ()
 class TableSearch
 {
 	/**
-	* Holds all created and set table tables.
+	* All created and set searchable tables.
+	* @type {TableSearchModel[]}
 	* @private
 	* @static
-	* @type {Array<TableSearchModel>}
 	*/
 	static #allsearch = [];
 
-	/**
-	* Initiliaze the controls of the tables.
-	* @static
-	*/
 	static start ()
 	{
 		this.#setControls();
@@ -78,9 +74,9 @@ class TableSearch
 	}
 
 	/**
-	* Returns all table models as an array.
+	* Returns all tables as an array.
+	* @returns {TableSearchModel[]}
 	* @static
-	* @returns {Array<TableSearchModel>}
 	*/
 	static get all ()
 	{
@@ -89,8 +85,8 @@ class TableSearch
 
 	/**
 	* Sets the table controls actions.
-	* @private
 	* @returns {void}
+	* @private
 	*/
 	static #setControls ()
 	{
@@ -113,15 +109,15 @@ class TableSearchModel
 	#pageLabel = null;
 
 	/**
-	* @type {Array<HTMLElement>}
 	* The row elements of the table.
+	* @type {Array<HTMLElement>}
 	*/
 	#rows = [];
 
 	/**
-	* @type {Array<string>}
 	* The textContent of the rows, they will be compared to keywords
 	* to improve performance and response time.
+	* @type {Array<string>}
 	*/
 	#rowContent = [];
 
@@ -146,6 +142,7 @@ class TableSearchModel
 		this.#tableBar = table;
 		this.#buttonControls = buttons;
 		this.#setNavControl();
+
 		this.getRows();
 	}
 
@@ -165,7 +162,6 @@ class TableSearchModel
 	}
 
 	/**
-	* Returns the max number of rows allowed per page.
 	* @returns {number}
 	*/
 	get maxRowsPerPage ()
@@ -174,7 +170,6 @@ class TableSearchModel
 	}
 
 	/**
-	* Returns the max number of rows allowed per page.
 	* @param {number} num
 	*/
 	set maxRowsPerPage (num)
@@ -183,6 +178,9 @@ class TableSearchModel
 		this.refresh();
 	}
 
+	/**
+	* @returns {number}
+	*/
 	get currentPage ()
 	{
 		return this.#currentPage;
@@ -190,16 +188,15 @@ class TableSearchModel
 
 	/**
 	* Stores and processes all the current rows the table has.
-	* @returns {void}
 	*/
 	getRows ()
 	{
-		let allrows = Array.from(this.tbody.children);
+		let allRows = Array.from(this.tbody.children);
 
 		this.#rows = [];
 		this.#rowContent = [];
 
-		allrows.forEach(row =>
+		allRows.forEach(row =>
 		{
 			const rowclone = row.cloneNode(true);
 
@@ -207,57 +204,22 @@ class TableSearchModel
 			let selectedContent = String();
 
 			selects.forEach(item =>
-				{
-					selectedContent += item[item.selectedIndex]?.innerText ?? "";
-					item.remove();
-				});
+			{
+				selectedContent += item[item.selectedIndex]?.innerText ?? "";
+				item.remove();
+			});
 
-				this.#rows.push(row);
+			this.#rows.push(row);
 
-				let content = rowclone.textContent.toLowerCase().trim() + selectedContent.toLowerCase().trim();
+			let content = rowclone.textContent.toLowerCase().trim() + selectedContent.toLowerCase().trim();
 
-				content = content.replace(/ |\n/gi, '');
+			// Remove \n
+			content = content.replace(/ |\n/gi, '');
 
-				this.#rowContent.push(content);
+			this.#rowContent.push(content);
 		});
 
 		this.refresh();
-	}
-
-	/**
-	* Returns the max number of rows allowed per page.
-	* @returns {HTMLElement}
-	*/
-	tableRowBegin ()
-	{
-		if(this.#tableRow)
-		{
-			this.#tableRow = null;
-		}
-
-		this.#tableRow = document.createElement('tr');
-
-		return this.#tableRow;
-	}
-
-	tableRowData (val = String())
-	{
-		let td = document.createElement('td');
-		td.innerText = val;
-		this.#tableRow.appendChild(td);
-
-		return td;
-	}
-
-	tableRowEnd ()
-	{
-		this.tbody.appendChild(this.#tableRow);
-		this.#tableRow = null;
-	}
-
-	get rawRowData ()
-	{
-		return this.#rowContent;
 	}
 
 	rawRowDataItem (i)
@@ -280,11 +242,11 @@ class TableSearchModel
 			let res = this.rowHasContent(query, i);
 
 			if(!res)
-				{
-					return;
-				}
+			{
+				return;
+			}
 
-				return child;
+			return child;
 		});
 
 		this.#pagesArray = [];
@@ -294,15 +256,15 @@ class TableSearchModel
 		this.#currentSelectedRows.forEach(item =>
 		{
 			if(index > this.#maxRowsPerPage)
-				{
-					this.#pagesArray.push(page);
-					page = [];
-					index = 1;
-				}
+			{
+				this.#pagesArray.push(page);
+				page = [];
+				index = 1;
+			}
 
-				page.push(item);
+			page.push(item);
 
-				index++;
+			index++;
 		});
 
 		if(index > 1)
@@ -341,7 +303,7 @@ class TableSearchModel
 
 		this.#currentPage = index + 1;
 
-		this.#pageLabel.innerText = `Page: ${this.#currentPage} of ${this.#pagesArray.length}`;
+		this.#pageLabel.innerText = `Page ${this.#currentPage} of ${this.#pagesArray.length}`;
 
 		if(this.#pagesArray.length < 1)
 		{
@@ -391,36 +353,17 @@ class TableSearchModel
 
 		let selectPage = document.createElement('select');
 		selectPage.title = 'Rows per page';
-		/*selectPage.style = `
-			margin-left: 1rem;
-			padding: .65rem 1rem;
-			border-style: solid;
-			border-color: #ccc;
-			border-radius: .65rem;
-		`;*/
 		selectPage.classList.add('input-select-simple');
 		this.#buttonControls.appendChild(selectPage);
 
-		let option0 = document.createElement('option');
-		option0.value = 8;
-		option0.innerText = '8';
-		selectPage.appendChild(option0);
-
-		let option1 = document.createElement('option');
-		option1.value = 15;
-		option1.innerText = '15';
-		option1.setAttribute('selected', '');
-		selectPage.appendChild(option1);
-
-		let option2 = document.createElement('option');
-		option2.value = 25;
-		option2.innerText = '25';
-		selectPage.appendChild(option2);
-
-		let option3 = document.createElement('option');
-		option3.value = 50;
-		option3.innerText = '50';
-		selectPage.appendChild(option3);
+		// Page numbers
+		[8, 15, 25, 50].forEach(num =>
+		{
+			let option = document.createElement('option');
+			option.value = num;
+			option.innerText = num;
+			selectPage.appendChild(option);
+		});
 
 		selectPage.onchange = (ev) =>
 		{

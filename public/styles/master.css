@@ -89,8 +89,9 @@ table > tbody > tr:nth-child(odd) {
     background-color: #311808;
 }
 
-table > tbody > tr > th {
+table > tbody > tr > td {
     padding: 10px;
+	text-align: center;
 }
 
 /* For mobile screens */

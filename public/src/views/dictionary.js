@@ -1,6 +1,6 @@
 
 import { HttpPost } from "../httpreq.js";
-import TryParseJson from "../json-tools.js";
+import { tryParseJson } from "../utility.js";
 import TableSearch from "../table-search.js";
 
 window.addEventListener('load', () =>
@@ -35,11 +35,10 @@ function searchBarControls ()
         {
             let response = await HttpPost('get-word-search', json);
 
-            let content = TryParseJson(response);
+            let content = tryParseJson(response);
 
             if(!content)
             {
-                console.error('Empty result');
                 return;
             }
 
@@ -102,7 +101,7 @@ function createTableItem ({ word, translation, logograms, information })
 {
 	let row = document.createElement('tr');
 
-	let wordcell = document.createElement('th');
+	let wordcell = document.createElement('td');
 	row.appendChild(wordcell);
 
 	wordcell.title = toUgPlural(word);
@@ -116,11 +115,11 @@ function createTableItem ({ word, translation, logograms, information })
 	rtWord.style.fontSize = '1.2rem';
 	rubynotation.appendChild(rtWord);
 
-	let translate = document.createElement('th');
+	let translate = document.createElement('td');
 	translate.textContent = translation;
 	row.appendChild(translate);
 
-	let infor = document.createElement('th');
+	let infor = document.createElement('td');
 	infor.textContent = information;
 	row.appendChild(infor);
 

@@ -1,22 +1,9 @@
 <?php
 
-function get_view_controller (): object
-{
-	$slug = $_GET['view'] ?? 'index';
+require 'models/route.php';
 
-	$pathfile = 'controllers/'.$slug.'.controller.php';
+$route = new RouteV1();
 
-	if(!file_exists($pathfile))
-	{
-		$pathfile = 'controllers/notfound.controller.php';
-	}
-
-	require_once $pathfile;
-
-	return new ViewController();
-}
-
-/* Accessible throughout the document */
-$controller = get_view_controller();
+$controller = $route->get_controller();
 
 ?>

@@ -17,7 +17,19 @@ class ViewController extends ModelController
 
 	public function get_onomastics_items (): array
 	{
-		$query = "SELECT * FROM NAMES ORDER BY NAME";
+		$query = "
+			SELECT
+				ID,
+				NAME,
+				MEANING,
+				CASE
+					WHEN ORIGIN = 0 THEN 'Levant'
+					WHEN ORIGIN = 1 THEN 'Mesopotamia'
+					ELSE 'Other'
+				END AS ORIGIN
+			FROM NAMES
+				ORDER BY NAME
+		";
 
 		$db = new Database();
 
