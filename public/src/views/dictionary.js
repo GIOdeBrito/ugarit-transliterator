@@ -33,7 +33,7 @@ function searchBarControls ()
 
         currentQueue = setTimeout(async () =>
         {
-            let response = await HttpPost('get-word-search', json);
+            let response = await HttpPost('/api/v1/wordsearch/', json);
 
             let content = tryParseJson(response);
 

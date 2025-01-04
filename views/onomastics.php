@@ -15,7 +15,7 @@
 		<tbody>
 			<?php
 
-			$items = $this->get_onomastics_items();
+			$items = static::get_onomastics_items();
 
 			foreach($items as $item)
 			{

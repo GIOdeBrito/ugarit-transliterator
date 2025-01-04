@@ -5,7 +5,7 @@ window.addEventListener('load', function ()
 {
 	window['text-transliterate-in'].oninput = async function (ev)
 	{
-		let response = await HttpPost('transliterate', { text: ev.target.value });
+		let response = await HttpPost('/api/v1/transliterate/', { text: ev.target.value });
 
 		window['result-label'].textContent = response;
 	};

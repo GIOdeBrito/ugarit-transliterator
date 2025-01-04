@@ -1,16 +1,15 @@
 
 /**
 * Makes a simple http request to get or post data to an endpoint.
-* @param {string} action
+* @param {url} url
 * @param {Object} args
 * @param {string[]} files
 * @returns {string}
 */
-function HttpPost (action, args = Object(), files = Array())
+function HttpPost (url, args = Object(), files = Array())
 {
     const fdata = new FormData();
 
-    fdata.append('action', action);
     fdata.append('args', JSON.stringify(args));
 
     // Append files
@@ -20,7 +19,6 @@ function HttpPost (action, args = Object(), files = Array())
     }
 
     const xmlreq = new XMLHttpRequest();
-    const url = '/api/v1/';
 
     xmlreq.open('POST', url, true);
     xmlreq.send(fdata);
